@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Stores>
+	<Store>
+		<StoreCode>3c0234</StoreCode>
+		<Manager>
+			<Person>
+				<PersonCode>fdc267</PersonCode>
+				<Type>E</Type>
+				<Name>Quarry, Staci</Name>
+				<Address>
+					<Street>601 Lotheville Road</Street>
+					<City>Savannah</City>
+					<State>GA</State>
+					<ZIP>31405</ZIP>
+					<Country>US</Country>
+				</Address>
+				<Email>squarry0@reverbnation.com</Email>
+				<Email>squarry0@salon.com</Email>
+			</Person>
+		</Manager>
+		<Address>
+			<Street>2 Crest Line Way</Street>
+			<City>New York City</City>
+			<State>NY</State>
+			<ZIP>10184</ZIP>
+			<Country>US</Country>
+		</Address>
+	</Store>
+	<Store>
+		<StoreCode>9f352c</StoreCode>
+		<Manager>
+			<Person>
+				<PersonCode>aa887a</PersonCode>
+				<Type>E</Type>
+				<Name>Leavold, Wit</Name>
+				<Address>
+					<Street>65337 Straubel Place</Street>
+					<City>Muncie</City>
+					<State>IN</State>
+					<ZIP>47306</ZIP>
+					<Country>US</Country>
+				</Address>
+				<Email>wleavold2@npr.org</Email>
+				<Email>wleavold2@craigslist.org</Email>
+			</Person>
+		</Manager>
+		<Address>
+			<Street>438 Jenna Road</Street>
+			<City>Huntsville</City>
+			<State>AL</State>
+			<ZIP>35815</ZIP>
+			<Country>US</Country>
+		</Address>
+	</Store>
+	<Store>
+		<StoreCode>73668b</StoreCode>
+		<Manager>
+			<Person>
+				<PersonCode>fdc267</PersonCode>
+				<Type>E</Type>
+				<Name>Quarry, Staci</Name>
+				<Address>
+					<Street>601 Lotheville Road</Street>
+					<City>Savannah</City>
+					<State>GA</State>
+					<ZIP>31405</ZIP>
+					<Country>US</Country>
+				</Address>
+				<Email>squarry0@reverbnation.com</Email>
+				<Email>squarry0@salon.com</Email>
+			</Person>
+		</Manager>
+		<Address>
+			<Street>9257 Maywood Junction</Street>
+			<City>Phoenix</City>
+			<State>AZ</State>
+			<ZIP>85099</ZIP>
+			<Country>US</Country>
+		</Address>
+	</Store>
+	<Store>
+		<StoreCode>96f2cf</StoreCode>
+		<Manager>
+			<Person>
+				<PersonCode>fdc267</PersonCode>
+				<Type>E</Type>
+				<Name>Quarry, Staci</Name>
+				<Address>
+					<Street>601 Lotheville Road</Street>
+					<City>Savannah</City>
+					<State>GA</State>
+					<ZIP>31405</ZIP>
+					<Country>US</Country>
+				</Address>
+				<Email>squarry0@reverbnation.com</Email>
+				<Email>squarry0@salon.com</Email>
+			</Person>
+		</Manager>
+		<Address>
+			<Street>1145 Transport Drive</Street>
+			<City>Gainesville</City>
+			<State>FL</State>
+			<ZIP>32605</ZIP>
+			<Country>US</Country>
+		</Address>
+	</Store>
+	<Store>
+		<StoreCode>25d901</StoreCode>
+		<Manager>
+			<Person>
+				<PersonCode>aa887a</PersonCode>
+				<Type>E</Type>
+				<Name>Leavold, Wit</Name>
+				<Address>
+					<Street>65337 Straubel Place</Street>
+					<City>Muncie</City>
+					<State>IN</State>
+					<ZIP>47306</ZIP>
+					<Country>US</Country>
+				</Address>
+				<Email>wleavold2@npr.org</Email>
+				<Email>wleavold2@craigslist.org</Email>
+			</Person>
+		</Manager>
+		<Address>
+			<Street>180 Magdeline Plaza</Street>
+			<City>Wichita</City>
+			<State>KS</State>
+			<ZIP>67230</ZIP>
+			<Country>US</Country>
+		</Address>
+	</Store>
+</Stores>

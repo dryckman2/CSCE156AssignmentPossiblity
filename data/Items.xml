@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Items>
+	<NewProduct>
+		<ItemCode>1d4d89</ItemCode>
+		<Name>PlayStation 5 Digital Edition</Name>
+		<Price>399.99</Price>
+	</NewProduct>
+	<NewProduct>
+		<ItemCode>1ed5b7</ItemCode>
+		<Name>Nintendo Switch Lite</Name>
+		<Price>199.99</Price>
+	</NewProduct>
+	<NewProduct>
+		<ItemCode>6ce4cd</ItemCode>
+		<Name>Splatoon 2 (Digital Copy)</Name>
+		<Price>59.99</Price>
+	</NewProduct>
+	<NewProduct>
+		<ItemCode>c547e7</ItemCode>
+		<Name>Diet Mt Dew (20oz)</Name>
+		<Price>1.99</Price>
+	</NewProduct>
+	<GiftCard>
+		<ItemCode>5f73aa</ItemCode>
+		<Name>Nintendo Digital Gold</Name>
+	</GiftCard>
+	<GiftCard>
+		<ItemCode>14e2b7</ItemCode>
+		<Name>Steam</Name>
+	</GiftCard>
+	<GiftCard>
+		<ItemCode>8a30ad</ItemCode>
+		<Name>Android Store</Name>
+	</GiftCard>
+	<GiftCard>
+		<ItemCode>daad6a</ItemCode>
+		<Name>Robux</Name>
+	</GiftCard>
+	<UsedProduct>
+		<ItemCode>649f88</ItemCode>
+		<Name>Legend of Zelda (NES)</Name>
+		<Price>24.50</Price>
+	</UsedProduct>
+	<UsedProduct>
+		<ItemCode>0ec6e9</ItemCode>
+		<Name>Animal Crossings</Name>
+		<Price>59.99</Price>
+	</UsedProduct>
+	<UsedProduct>
+		<ItemCode>9b6e30</ItemCode>
+		<Name>Oculus Rift</Name>
+		<Price>199.99</Price>
+	</UsedProduct>
+	<UsedProduct>
+		<ItemCode>40a433</ItemCode>
+		<Name>Vive</Name>
+		<Price>599.99</Price>
+	</UsedProduct>
+	<Service>
+		<ItemCode>8e366e</ItemCode>
+		<Name>Console Repair</Name>
+		<HourlyRate>59.99</HourlyRate>
+	</Service>
+	<Service>
+		<ItemCode>c4fb35</ItemCode>
+		<Name>VR Party Rental</Name>
+		<HourlyRate>120.00</HourlyRate>
+	</Service>
+	<Service>
+		<ItemCode>740515</ItemCode>
+		<Name>Game Addiction Counseling</Name>
+		<HourlyRate>1.99</HourlyRate>
+	</Service>
+	<Subscription>
+		<ItemCode>426dda</ItemCode>
+		<Name>X-Box Live</Name>
+		<AnnualFee>50.00</AnnualFee>
+	</Subscription>
+	<Subscription>
+		<ItemCode>dedd44</ItemCode>
+		<Name>Nintendo Power magazine</Name>
+		<AnnualFee>120.00</AnnualFee>
+	</Subscription>
+	<Subscription>
+		<ItemCode>3506f6</ItemCode>
+		<Name>Disney Plus</Name>
+		<AnnualFee>89.99</AnnualFee>
+	</Subscription>
+</Items>

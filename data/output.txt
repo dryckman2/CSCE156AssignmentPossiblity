@@ -1,0 +1,168 @@
++-----------------------------------------------------+
+| Salesperson Summary Report                          |
++-----------------------------------------------------+
+Salesperson                    # Sales    Grand Total    
+Leavold, Wit                   0          $      0.00
+Michelotti, Nonnah             4          $   2786.75
+Quarry, Staci                  2          $   3321.39
++-----------------------------------------------------+
+                               6          $   6108.14
+
++----------------------------------------------------------------+
+| Store Sales Summary Report                                     |
++----------------------------------------------------------------+
+Store      Manager                        # Sales    Grand Total    
+3c0234     Quarry, Staci                  1          $   3042.61
+25d901     Leavold, Wit                   4          $   2786.75
+9f352c     Leavold, Wit                   1          $    278.78
+73668b     Quarry, Staci                  0          $      0.00
+96f2cf     Quarry, Staci                  0          $      0.00
++----------------------------------------------------------------+
+                                          6          $   6108.14
+
+Sale  #SaLE002
+Store #9f352c
+Customer: 
+Antoshin, Rice ([rantoshina@cam.ac.uk, rantoshina@amazonaws.com, rantoshina@economist.com, rantoshina@sfgate.com])
+	3 5th Junction
+	Fort Collins CO 80525 US
+
+Sales Person: 
+Quarry, Staci ([squarry0@reverbnation.com, squarry0@salon.com])
+	601 Lotheville Road
+	Savannah GA 31405 US
+
+Item                                                               Total
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-                          -=-=-=-=-=-
+Robux
+   (Gift Card #daad6a)                                       $     52.34
+Android Store
+   (Gift Card #8a30ad)                                       $    109.00
+Diet Mt Dew (20oz)
+   (New Item #c547e7 @$1.99/ea)                              $     39.80
+Legend of Zelda (NES)
+   (Used Item #649f88 @$19.60/ea)                            $     58.80
+                                                             -=-=-=-=-=-
+                                                    Subtotal $    259.94
+                                                         Tax $     18.84
+                                                 Grand Total $    278.78
+Sale  #SaLe001
+Store #3c0234
+Customer: 
+Cullington, Zara ([zcullington3@engadget.com, zcullington3@wisc.edu, zcullington3@google.es, zcullington3@google.pl])
+	81 Northport Avenue
+	Mobile AL 36628 US
+
+Sales Person: 
+Quarry, Staci ([squarry0@reverbnation.com, squarry0@salon.com])
+	601 Lotheville Road
+	Savannah GA 31405 US
+
+Item                                                               Total
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-                          -=-=-=-=-=-
+PlayStation 5 Digital Edition
+   (New Item #1d4d89 @$399.99/ea)                            $    399.99
+Game Addiction Counseling
+   (Service #740515 by Michelotti, Nonnah 4.50hrs@$1.99/hr)  $      8.96
+Nintendo Power magazine
+   (Subscription #dedd44 8950 days@$120.00/yr)               $   2942.47
+                                                             -=-=-=-=-=-
+                                                    Subtotal $   3351.42
+                                                         Tax $     29.26
+                                           Discount (10.00%) $    338.07
+                                                 Grand Total $   3042.61
+Sale  #SBB8
+Store #25d901
+Customer: 
+Halse, Farand ([fhalse7@europa.eu, fhalse7@microsoft.com, fhalse7@fc2.com, fhalse7@moonfruit.com])
+	37 Hoard Circle
+	Plano TX 75074 US
+
+Sales Person: 
+Michelotti, Nonnah ([nmichelotti1@sbwire.com, nmichelotti1@vistaprint.com, nmichelotti1@gravatar.com, nmichelotti1@patch.com])
+	0 Havey Avenue
+	Cleveland OH 44177 US
+
+Item                                                               Total
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-                          -=-=-=-=-=-
+Nintendo Switch Lite
+   (New Item #1ed5b7 @$199.99/ea)                            $    399.98
+Steam
+   (Gift Card #14e2b7)                                       $     50.00
+                                                             -=-=-=-=-=-
+                                                    Subtotal $    449.98
+                                                         Tax $     32.62
+                                            Discount (5.00%) $     24.13
+                                                 Grand Total $    458.47
+Sale  #S12
+Store #25d901
+Customer: 
+Stammers, Bernadette ([bstammers5@flickr.com, bstammers5@mapy.cz, bstammers5@cpanel.net])
+	33 Lake View Alley
+	Roanoke VA 24040 US
+
+Sales Person: 
+Michelotti, Nonnah ([nmichelotti1@sbwire.com, nmichelotti1@vistaprint.com, nmichelotti1@gravatar.com, nmichelotti1@patch.com])
+	0 Havey Avenue
+	Cleveland OH 44177 US
+
+Item                                                               Total
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-                          -=-=-=-=-=-
+Animal Crossings
+   (Used Item #0ec6e9 @$47.99/ea)                            $    959.80
+Disney Plus
+   (Subscription #3506f6 397 days@$89.99/yr)                 $     97.88
+                                                             -=-=-=-=-=-
+                                                    Subtotal $   1057.68
+                                                         Tax $     69.59
+                                           Discount (10.00%) $    112.73
+                                                 Grand Total $   1014.54
+Sale  #SL3x21
+Store #25d901
+Customer: 
+Stammers, Bernadette ([bstammers5@flickr.com, bstammers5@mapy.cz, bstammers5@cpanel.net])
+	33 Lake View Alley
+	Roanoke VA 24040 US
+
+Sales Person: 
+Michelotti, Nonnah ([nmichelotti1@sbwire.com, nmichelotti1@vistaprint.com, nmichelotti1@gravatar.com, nmichelotti1@patch.com])
+	0 Havey Avenue
+	Cleveland OH 44177 US
+
+Item                                                               Total
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-                          -=-=-=-=-=-
+Splatoon 2 (Digital Copy)
+   (New Item #6ce4cd @$59.99/ea)                             $     59.99
+Diet Mt Dew (20oz)
+   (New Item #c547e7 @$1.99/ea)                              $      0.00
+                                                             -=-=-=-=-=-
+                                                    Subtotal $     59.99
+                                                         Tax $      4.35
+                                           Discount (10.00%) $      6.43
+                                                 Grand Total $     57.91
+Sale  #SL321
+Store #25d901
+Customer: 
+Uttley, Gianni ([guttley6@sogou.com, guttley6@linkedin.com, guttley6@latimes.com])
+	6811 Pleasure Point
+	Salinas CA 93907 US
+
+Sales Person: 
+Michelotti, Nonnah ([nmichelotti1@sbwire.com, nmichelotti1@vistaprint.com, nmichelotti1@gravatar.com, nmichelotti1@patch.com])
+	0 Havey Avenue
+	Cleveland OH 44177 US
+
+Item                                                               Total
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-                          -=-=-=-=-=-
+Robux
+   (Gift Card #daad6a)                                       $    100.00
+Vive
+   (Used Item #40a433 @$479.99/ea)                           $    959.98
+Console Repair
+   (Service #8e366e by Michelotti, Nonnah 3.00hrs@$59.99/hr) $    179.97
+                                                             -=-=-=-=-=-
+                                                    Subtotal $   1239.95
+                                                         Tax $     81.98
+                                            Discount (5.00%) $     66.10
+                                                 Grand Total $   1255.83
+
