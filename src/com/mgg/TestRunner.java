@@ -1,6 +1,5 @@
 package com.mgg;
 
-import java.io.File;
 import java.util.List;
 
 public class TestRunner {
@@ -17,7 +16,7 @@ public class TestRunner {
 		//Creates List for CSV data
 		List<Person> people = DataConverter.inportPersons(PERSONSFILE_NAME);
 		List<Store> stores = DataConverter.inportStores(STORESFILE_NAME);
-		List<Item> items = DataConverter.inportItems(STORESFILE_NAME);
+		List<Item> items = DataConverter.inportItems(ITEMSFILE_NAME);
 		
 		//To XML for People Stores and Items
 		DataConverter.exportPeopleToXML(people);
@@ -25,9 +24,9 @@ public class TestRunner {
 		DataConverter.exportItemsToXML(items);
 		
 		//Loads sales form CSV
-		//List<Sale> sales = Sale.inportSaleDate("data/Sales.csv", items);
+		List<Sale> sales = Sale.inportSaleDate("data/Sales.csv", items);
 
-		//Sale.printStoreReport(sales, stores, people);
+		Sale.printStoreReport(sales, stores, people);
 		
 		
 		
