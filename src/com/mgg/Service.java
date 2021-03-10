@@ -1,6 +1,6 @@
 package com.mgg;
 
-public class Service extends Items{
+public class Service extends Item{
 
 	public Service(String code, String name, String basePrice) {
 		super(code, name, basePrice);

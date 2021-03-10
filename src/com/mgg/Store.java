@@ -8,12 +8,12 @@ package com.mgg;
 
 import java.util.List;
 
-public class Stores {
+public class Store {
 	private String storeCode;
 	private String managerCode;
 	private Address address;
 
-	public Stores(String storeCode, String managerCode, Address address) {
+	public Store(String storeCode, String managerCode, Address address) {
 		this.storeCode = storeCode;
 		this.managerCode = managerCode;
 		this.address = address; // possibly make a list<> or array of Strings or split into parts and combine
@@ -25,17 +25,9 @@ public class Stores {
 		return this.storeCode;
 	}
 
-	public void setStoreCode(String storeCode) {
-		this.storeCode = storeCode;
-	}
-
 	// managerCode
 	public String getManagerCode() {
 		return this.managerCode;
-	}
-
-	public void setManagerCode(String managerCode) {
-		this.managerCode = managerCode;
 	}
 
 	// store address
@@ -43,12 +35,8 @@ public class Stores {
 		return this.address;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
 	// Requires a list of people to locate the manager in
-	public String toXMLString(int tabs, List<Persons> people) {
+	public String toXMLString(int tabs, List<Person> people) {
 		String data, offset = "";
 		for (int i = 1; i <= tabs; i++) {
 			offset += "\t";
@@ -56,7 +44,7 @@ public class Stores {
 		data = offset +"<Store>\n";
 		data += offset +"\t<StoreCode>" + this.getStoreCode() + "</StoreCode>\n";
 		data += offset +"\t<Manager>\n";
-		for (Persons man : people) {
+		for (Person man : people) {
 			if (man.getPersonCode().equals(this.getManagerCode())) {
 				data += man.toXMLString(tabs + 2);
 				data += offset +"\t</Manager>\n";

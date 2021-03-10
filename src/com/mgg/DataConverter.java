@@ -16,17 +16,12 @@ public class DataConverter {
 	private static final String STORESFILE_NAME = "data/Stores.csv";
 	private static final String ITEMSFILE_NAME = "data/Items.csv";
 
-	/*
-	 * public static List<Persons> loadPersonsData(){ List<Persons> people = new
-	 * ArrayList<>(); }
-	 */
-
 	public static void main(String[] args) {
 		// TODO: need to read in/load csv files from data directory, each has a first
 
 		// loading persons file input from csv file
 		File personInput = new File(PERSONSFILE_NAME);
-		List<Persons> people = new ArrayList<>();
+		List<Person> people = new ArrayList<>();
 		int numberOfPeople;
 		try (Scanner scan = new Scanner(personInput)) {
 			numberOfPeople = Integer.parseInt(scan.nextLine());
@@ -34,7 +29,8 @@ public class DataConverter {
 				String tokens[] = scan.nextLine().split(",");
 				String personCode = tokens[0];
 				String type = tokens[1];
-				String name = tokens[2] + ", " + tokens[3];
+				String lastName = tokens[2];
+				String firstName = tokens[3];
 				String street = tokens[4];
 				String city = tokens[5];
 				String state = tokens[6];
@@ -47,7 +43,7 @@ public class DataConverter {
 				}
 				// construct address and persons
 				Address a = new Address(street, city, state, zip, country);
-				Persons p = new Persons(personCode, type, name, a, emails);
+				Person p = new Person(personCode, type,lastName, firstName, a, emails);
 				people.add(p);
 			}
 		} catch (FileNotFoundException e) {
@@ -57,7 +53,7 @@ public class DataConverter {
 
 		// loading stores data from input .csv file
 		File storesInput = new File(STORESFILE_NAME);
-		List<Stores> stores = new ArrayList<>();
+		List<Store> stores = new ArrayList<>();
 		int numberOfStores;
 		try (Scanner scan = new Scanner(storesInput)) {
 			numberOfStores = Integer.parseInt(scan.nextLine());
@@ -73,7 +69,7 @@ public class DataConverter {
 
 				// construct Address and Stores
 				Address a = new Address(street, city, state, zip, country);
-				Stores s = new Stores(storeCode, managerCode, a);
+				Store s = new Store(storeCode, managerCode, a);
 				stores.add(s);
 			}
 		} catch (FileNotFoundException e) {
@@ -83,7 +79,7 @@ public class DataConverter {
 
 		// loading items data from input .csv file
 		File itemsInput = new File(ITEMSFILE_NAME);
-		List<Items> items = new ArrayList<>();
+		List<Item> items = new ArrayList<>();
 		int numberOfItems;
 		try (Scanner scan = new Scanner(itemsInput)) {
 			numberOfItems = Integer.parseInt(scan.nextLine());
@@ -99,7 +95,7 @@ public class DataConverter {
 					price = null;
 				}
 				// Construct Items
-				Items i;
+				Item i;
 				switch (type) {
 				case "SB":
 					i = new Subscription(itemCode, name, price);
@@ -139,7 +135,7 @@ public class DataConverter {
 		}
 		p.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		p.println("<People>");
-		for (Persons temp : people) {
+		for (Person temp : people) {
 			p.print(temp.toXMLString(1));
 		}
 		p.println("</People>");
@@ -155,7 +151,7 @@ public class DataConverter {
 		}
 		printStore.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		printStore.println("<Stores>");
-		for (Stores temp : stores) {
+		for (Store temp : stores) {
 			printStore.print(temp.toXMLString(1,people));
 		}
 		printStore.println("</Stores>");
@@ -171,7 +167,7 @@ public class DataConverter {
 		}
 		printItem.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		printItem.println("<Items>");
-		for (Items temp : items) {
+		for (Item temp : items) {
 			printItem.print(temp.toXMLString(1));
 		}
 		printItem.print("</Items>");

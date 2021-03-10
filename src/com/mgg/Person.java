@@ -8,17 +8,19 @@ package com.mgg;
 
 import java.util.List;
 
-public class Persons {
+public class Person {
 	private String personCode;
 	private String type;
-	private String name;
+	private String lastName;
+	private String firstName;
 	private Address address;
 	private List<String> emailAddresses;
 
-	public Persons(String personCode, String type, String name, Address address, List<String> emails) {
+	public Person(String personCode, String type, String lastName,String firstName, Address address, List<String> emails) {
 		this.personCode = personCode;
 		this.type = type;
-		this.name = name; // split into first/last later or start with it split up
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.address = address; // list or array for different elements or split into parts and combine
 								// elsewhere
 		this.emailAddresses = emails; // due to having multiple potential emails, maybe make <list> or array
@@ -29,26 +31,14 @@ public class Persons {
 		return this.personCode;
 	}
 
-	public void setPersonCode(String personCode) {
-		this.personCode = personCode;
-	}
-
 	// type
 	public String getType() {
 		return this.type;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	// names
 	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		return lastName + ", " + firstName;
 	}
 
 	// mailing addresses
@@ -56,17 +46,9 @@ public class Persons {
 		return this.address;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
 	// email addresses
 	public List<String> getEmailAddresses() {
 		return this.emailAddresses;
-	}
-
-	public void setEmailAddresses(List<String> emailAddresses) {
-		this.emailAddresses = emailAddresses;
 	}
 
 	public String toXMLString(int tabs) {

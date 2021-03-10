@@ -26,17 +26,9 @@ public class Address {
 		return this.street;
 	}
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
 	// city
 	public String getCity() {
 		return this.city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
 	}
 
 	// state
@@ -44,26 +36,14 @@ public class Address {
 		return this.state;
 	}
 
-	public void setState(String state) {
-		this.state = state;
-	}
-
 	// zip
 	public String getZip() {
 		return this.zip;
 	}
 
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
-
 	// country
 	public String getCountry() {
 		return this.country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public String toXMLString(int tabs) {

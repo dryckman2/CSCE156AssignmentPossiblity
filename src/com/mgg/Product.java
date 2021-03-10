@@ -1,6 +1,6 @@
 package com.mgg;
 
-public class Product extends Items {
+public class Product extends Item {
 
 	private String type;
 

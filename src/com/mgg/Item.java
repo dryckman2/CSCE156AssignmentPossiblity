@@ -6,13 +6,13 @@ package com.mgg;
  * @date 
  */
 
-public abstract class Items {
+public abstract class Item {
 
 	private String code;
 	private String name;
 	private String basePrice;
 
-	public Items(String code, String name, String basePrice) {
+	public Item(String code, String name, String basePrice) {
 		this.code = code;
 		this.name = name;
 		this.basePrice = basePrice;
@@ -20,10 +20,6 @@ public abstract class Items {
 
 	public String getCode() {
 		return this.code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}
 
 	// type
@@ -34,17 +30,9 @@ public abstract class Items {
 		return this.name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	// basePrice
 	public String getBasePrice() {
 		return this.basePrice;
-	}
-
-	public void setBasePrice(String basePrice) {
-		this.basePrice = basePrice;
 	}
 
 	public abstract String toXMLString(int tabs);

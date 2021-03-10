@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.mgg.Address" project="Assignment#2" 
-    file="/Assignment#2/src/com/mgg/Address.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="649" y="295"/>    
+  <class id="1" language="java" name="com.mgg.Store" project="CSCE156AssignmentPossiblity" 
+    file="/CSCE156AssignmentPossiblity/src/com/mgg/Store.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="200" x="395" y="166"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.mgg.DataConverter" project="Assignment#2" 
-    file="/Assignment#2/src/com/mgg/DataConverter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1241" y="245"/>    
+  <class id="2" language="java" name="com.mgg.Subscription" project="CSCE156AssignmentPossiblity" 
+    file="/CSCE156AssignmentPossiblity/src/com/mgg/Subscription.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="184" x="777" y="485"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.mgg.Items" project="Assignment#2" file="/Assignment#2/src/com/mgg/Items.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="254" y="655"/>    
+  <class id="3" language="java" name="com.mgg.Product" project="CSCE156AssignmentPossiblity" 
+    file="/CSCE156AssignmentPossiblity/src/com/mgg/Product.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="192" x="1001" y="485"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.mgg.Persons" project="Assignment#2" 
-    file="/Assignment#2/src/com/mgg/Persons.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="351" width="269" x="114" y="102"/>    
+  <class id="4" language="java" name="com.mgg.Service" project="CSCE156AssignmentPossiblity" 
+    file="/CSCE156AssignmentPossiblity/src/com/mgg/Service.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="161" x="1233" y="485"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.mgg.Product" project="Assignment#2" 
-    file="/Assignment#2/src/com/mgg/Product.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="759" y="749"/>    
+  <class id="5" language="java" name="com.mgg.Address" project="CSCE156AssignmentPossiblity" 
+    file="/CSCE156AssignmentPossiblity/src/com/mgg/Address.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="228" x="509" y="485"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.mgg.Service" project="Assignment#2" 
-    file="/Assignment#2/src/com/mgg/Service.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="161" x="897" y="497"/>    
+  <class id="6" language="java" name="com.mgg.DataConverter" project="CSCE156AssignmentPossiblity" 
+    file="/CSCE156AssignmentPossiblity/src/com/mgg/DataConverter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="163" x="969" y="166"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="com.mgg.Stores" project="Assignment#2" 
-    file="/Assignment#2/src/com/mgg/Stores.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="994" y="250"/>    
+  <class id="7" language="java" name="com.mgg.Item" project="CSCE156AssignmentPossiblity" 
+    file="/CSCE156AssignmentPossiblity/src/com/mgg/Item.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="143" x="1172" y="166"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="com.mgg.Subscription" project="Assignment#2" 
-    file="/Assignment#2/src/com/mgg/Subscription.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="542" y="870"/>    
+  <class id="8" language="java" name="com.mgg.Person" project="CSCE156AssignmentPossiblity" 
+    file="/CSCE156AssignmentPossiblity/src/com/mgg/Person.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="294" x="635" y="166"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -74,32 +74,32 @@
     </display>  
   </class>  
   <association id="9">    
-    <end type="SOURCE" refId="7" navigable="false">      
+    <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="10" name="address"/>      
       <multiplicity id="11" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="12">    
-    <end type="SOURCE" refId="4" navigable="false">      
+    <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="13" name="address"/>      
       <multiplicity id="14" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="15">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
   </generalization>  
   <generalization id="16">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
   </generalization>  
   <generalization id="17">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

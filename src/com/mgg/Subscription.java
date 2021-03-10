@@ -1,10 +1,9 @@
 package com.mgg;
 
-public class Subscription extends Items {
+public class Subscription extends Item {
 
 	public Subscription(String code, String name, String basePrice) {
 		super(code, name, basePrice);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
