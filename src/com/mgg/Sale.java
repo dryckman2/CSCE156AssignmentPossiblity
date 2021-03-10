@@ -110,22 +110,35 @@ public class Sale {
 
 			// store code
 			System.out.println("Store Code: " + store.getCode());
-			
+
 			store.getAddress().printReport(1);
-			
+
 			// manager code and details
 			System.out.println("\nManager Code: " + store.getManagerCode());
 			Person manager = store.getManager(people);
 			manager.printReport(1);
 
 			// items for each store
-			// TODO: some for-loop going thorugh each sale, calling a getCost() for each, then
+			// TODO: some for-loop going thorugh each sale, calling a getCost() for each,
+			// then
 			// TODO: printing a total amount of sales and money made by this store
 			System.out.println("Sales:");
 			System.out.println("Amount: ");
 		}
 	}
 
-	
-	
+	public static void assignSalesToStores(List<Store> stores, List<Sale> allSales) {
+		List<Sale> salesForStore;
+		for (Store thisStore : stores) {
+			salesForStore = new ArrayList<Sale>();
+			for (Sale thisSale : allSales) {
+				if (thisSale.getStoreCode().equals(thisStore.getCode())) {
+					salesForStore.add(thisSale);
+				}
+
+			}
+			thisStore.setListOfSales(salesForStore);
+		}
+	}
+
 }

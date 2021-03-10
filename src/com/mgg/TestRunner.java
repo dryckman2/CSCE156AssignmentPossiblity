@@ -25,7 +25,10 @@ public class TestRunner {
 		
 		//Loads sales form CSV
 		List<Sale> sales = Sale.importSaleDate("data/Sales.csv", items);
-
+		
+		Sale.assignSalesToStores(stores, sales);
+		
+		
 		Sale.printStoreReport(sales, stores, people);
 		
 		
