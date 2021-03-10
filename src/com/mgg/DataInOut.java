@@ -94,14 +94,13 @@ public class DataInOut {
 				String itemCode = tokens[0];
 				String type = tokens[1];
 				String name = tokens[2];
-				String price;
+				//Price default to 0.0 and Doesn't matter in gift cards but is set for others
+				double price = 0.0;
 				if (!type.equals("PG")) {
-					price = tokens[3];
-				} else {
-					price = null;
+					price = Double.parseDouble(tokens[3]);
 				}
 				// Construct Items
-				Item i;
+				Item i = null;
 				switch (type) {
 				case "SB":
 					i = new Subscription(itemCode, name, price);
@@ -109,8 +108,19 @@ public class DataInOut {
 				case "SV":
 					i = new Service(itemCode, name, price);
 					break;
+				case "PG":
+					i = new GiftCard(itemCode, name, price);
+					break;
+				case "PU":
+					i = new Product(itemCode, type, name, price, true);
+					break;
+				case "PN":
+					i = new Product(itemCode, type, name, price, false);
+					break;
 				default:
-					i = new Product(itemCode, type, name, price);
+					System.err.println("Type Of Item is Not Standard");
+					System.exit(1);
+					break;
 				}
 				items.add(i);
 			}

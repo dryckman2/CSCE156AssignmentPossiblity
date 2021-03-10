@@ -39,7 +39,7 @@
 	<UsedProduct>
 		<ItemCode>649f88</ItemCode>
 		<Name>Legend of Zelda (NES)</Name>
-		<Price>24.50</Price>
+		<Price>24.5</Price>
 	</UsedProduct>
 	<UsedProduct>
 		<ItemCode>0ec6e9</ItemCode>
@@ -64,7 +64,7 @@
 	<Service>
 		<ItemCode>c4fb35</ItemCode>
 		<Name>VR Party Rental</Name>
-		<HourlyRate>120.00</HourlyRate>
+		<HourlyRate>120.0</HourlyRate>
 	</Service>
 	<Service>
 		<ItemCode>740515</ItemCode>
@@ -74,12 +74,12 @@
 	<Subscription>
 		<ItemCode>426dda</ItemCode>
 		<Name>X-Box Live</Name>
-		<AnnualFee>50.00</AnnualFee>
+		<AnnualFee>50.0</AnnualFee>
 	</Subscription>
 	<Subscription>
 		<ItemCode>dedd44</ItemCode>
 		<Name>Nintendo Power magazine</Name>
-		<AnnualFee>120.00</AnnualFee>
+		<AnnualFee>120.0</AnnualFee>
 	</Subscription>
 	<Subscription>
 		<ItemCode>3506f6</ItemCode>

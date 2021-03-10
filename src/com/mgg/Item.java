@@ -14,9 +14,9 @@ public abstract class Item {
 
 	private String code;
 	private String name;
-	private String basePrice;
+	protected double basePrice;
 
-	public Item(String code, String name, String basePrice) {
+	public Item(String code, String name, double basePrice) {
 		this.code = code;
 		this.name = name;
 		this.basePrice = basePrice;
@@ -35,9 +35,11 @@ public abstract class Item {
 	}
 
 	// basePrice
-	public String getBasePrice() {
+	public double getBasePrice() {
 		return this.basePrice;
 	}
+	
+	public abstract double getCost();
 
 	public abstract String toXMLString(int tabs);
 

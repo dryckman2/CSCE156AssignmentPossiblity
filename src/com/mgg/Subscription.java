@@ -1,10 +1,13 @@
 package com.mgg;
 
-public class Subscription extends Item {
-	private String beginDate;
-	private String endDate;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
-	public Subscription(String code, String name, String basePrice) {
+public class Subscription extends Item {
+	private LocalDate beginDate;
+	private LocalDate endDate;
+
+	public Subscription(String code, String name, double basePrice) {
 		super(code, name, basePrice);
 	}
 
@@ -27,19 +30,34 @@ public class Subscription extends Item {
 		return data;
 	}
 
-	public String getBeginDate() {
+	public LocalDate getBeginDate() {
 		return beginDate;
 	}
 
 	public void setBeginDate(String beginDate) {
-		this.beginDate = beginDate;
+		String tokens[] = beginDate.split("-");
+		int year = Integer.parseInt(tokens[0]);
+		int month = Integer.parseInt(tokens[1]);
+		int day = Integer.parseInt(tokens[2]);
+		this.beginDate = LocalDate.of(year,month,day);
 	}
 
-	public String getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
 	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+		String tokens[] = endDate.split("-");
+		int year = Integer.parseInt(tokens[0]);
+		int month = Integer.parseInt(tokens[1]);
+		int day = Integer.parseInt(tokens[2]);
+		this.endDate = LocalDate.of(year,month,day);
+	}
+
+	@Override
+	public double getCost() {
+		long days = ChronoUnit.DAYS.between(beginDate,endDate) + 1;
+		double cost = basePrice * days;
+		return cost;
 	}
 }

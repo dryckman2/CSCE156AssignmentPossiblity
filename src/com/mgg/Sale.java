@@ -68,8 +68,8 @@ public class Sale {
 					}
 					if (type.getType().equals("PG")) {
 						// TODO: Change parameters to Gift cards with price instead of quantity
-						Product specifiedType = (Product) type;
-						specifiedType.setQuantity(Double.parseDouble(tokens[i + 1]));
+						GiftCard specifiedType = (GiftCard) type;
+						specifiedType.setAmount(Double.parseDouble(tokens[i + 1]));
 						cart.add(specifiedType);
 						// To Skip Over Used Quantity Number
 						i += 1;
@@ -120,7 +120,11 @@ public class Sale {
 	public static void printReport(List<Store> stores,List<Item> items, List<Person> people,List<Sale> allSales){
 		
 		
-		
+		for(Sale s : allSales) {
+			for(Item i :s.getItems()) {
+				i.getCost();
+			}
+		}
 		
 		
 		
