@@ -99,7 +99,7 @@ public class Sale {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-
+		
 		return sales;
 	}
 
@@ -110,8 +110,20 @@ public class Sale {
 		}
 	}
 	
+	public static void assignSalesToEmployees(List<Employee> employees, List<Sale> allSales) {
+		for (Employee thisEmployee : employees) {
+			thisEmployee.setListOfSales(allSales);
+		}
+	}
 	
-	public static void printReport(List<Store> stores,List<Item> items, List<Person> people){
+	
+	public static void printReport(List<Store> stores,List<Item> items, List<Person> people,List<Sale> allSales){
+		
+		
+		
+		
+		
+		
 		
 	}
 	

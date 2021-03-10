@@ -14,7 +14,10 @@ public class TestRunner {
 		List<Person> people = DataInOut.importPersons(PERSONSFILE_NAME);
 		List<Store> stores = DataInOut.importStores(STORESFILE_NAME);
 		List<Item> items = DataInOut.importItems(ITEMSFILE_NAME);
-
+		
+		//Picks Employees out of people for later use
+		List<Employee> employees = Employee.pickEmployees(people);
+		
 		// To XML for People Stores and Items
 		DataInOut.exportPeopleToXML(people);
 		DataInOut.exportStoresToXML(stores, people);
@@ -22,9 +25,15 @@ public class TestRunner {
 
 		// Loads sales form CSV
 		List<Sale> sales = Sale.importSaleDate("data/Sales.csv", items);
-
-		Sale.assignSalesToStores(stores, sales);
 		
-		Sale.printReport(stores,items,people);
+		//Gives sales list to every store and every employee where appropriate
+		Sale.assignSalesToStores(stores, sales);
+		Sale.assignSalesToEmployees(employees, sales);
+		
+		
+		
+		
+		
+		Sale.printReport(stores,items,people,sales);
 	}
 }

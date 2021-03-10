@@ -16,7 +16,8 @@ public class Person {
 	private Address address;
 	private List<String> emailAddresses;
 
-	public Person(String personCode, String type, String lastName,String firstName, Address address, List<String> emails) {
+	public Person(String personCode, String type, String lastName, String firstName, Address address,
+			List<String> emails) {
 		this.personCode = personCode;
 		this.type = type;
 		this.firstName = firstName;
@@ -41,6 +42,14 @@ public class Person {
 		return lastName + ", " + firstName;
 	}
 
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
 	// mailing addresses
 	public Address getAddress() {
 		return this.address;
@@ -53,7 +62,7 @@ public class Person {
 
 	public String toXMLString(int tabs) {
 		String data, offset = "";
-		for(int i = 1;i <= tabs;i++) {
+		for (int i = 1; i <= tabs; i++) {
 			offset += "\t";
 		}
 		data = offset + "<Person>\n";
@@ -66,11 +75,10 @@ public class Person {
 		for (String email : this.getEmailAddresses()) {
 			data += offset + "\t<Email>" + email + "</Email>\n";
 		}
-		data += offset +  "</Person>\n";
+		data += offset + "</Person>\n";
 		return data;
 	}
-	
-	
+
 	public static Person checkCode(List<Person> people, String code) {
 		for (Person p : people) {
 			if (p.getCode().equals(code)) {
@@ -79,22 +87,19 @@ public class Person {
 		}
 		return null;
 	}
-	
+
 	public void printReport(int tabs) {
 		String offset = "";
-		for(int i = 1;i <= tabs;i++) {
+		for (int i = 1; i <= tabs; i++) {
 			offset += "\t";
 		}
 		System.out.println(offset + this.getName());
 		this.address.printReport(tabs);
 		System.out.println(offset + "Emails:");
-		for(String s : this.emailAddresses) {
+		for (String s : this.emailAddresses) {
 			System.out.println(offset + "\t" + s);
 		}
-		
+
 	}
-	
-	
-	
-	
+
 }
