@@ -6,13 +6,13 @@ package com.mgg;
  * @date 
  */
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Store {
 	private String code;
 	private String managerCode;
 	private Address address;
-	// Initializes Blank but is set after sales data is imported
 	private List<Sale> saleAtStore;
 
 	public Store(String code, String managerCode, Address address) {
@@ -20,6 +20,8 @@ public class Store {
 		this.managerCode = managerCode;
 		this.address = address; // possibly make a list<> or array of Strings or split into parts and combine
 								// elsewhere
+		// Initializes Blank but is set after sales data is imported
+		this.saleAtStore = new ArrayList<Sale>();
 	}
 
 	// code
@@ -67,7 +69,7 @@ public class Store {
 	public void setListOfSales(List<Sale> allSales) {
 		for (Sale s : allSales) {
 			if (s.getStoreCode().equals(this.code)) {
-				saleAtStore.add(s);
+				this.saleAtStore.add(s);
 			}
 		}
 	}

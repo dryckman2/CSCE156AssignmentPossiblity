@@ -128,16 +128,8 @@ public class Sale {
 	}
 
 	public static void assignSalesToStores(List<Store> stores, List<Sale> allSales) {
-		List<Sale> salesForStore;
 		for (Store thisStore : stores) {
-			salesForStore = new ArrayList<Sale>();
-			for (Sale thisSale : allSales) {
-				if (thisSale.getStoreCode().equals(thisStore.getCode())) {
-					salesForStore.add(thisSale);
-				}
-
-			}
-			thisStore.setListOfSales(salesForStore);
+			thisStore.setListOfSales(allSales);
 		}
 	}
 
