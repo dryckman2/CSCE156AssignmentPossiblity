@@ -11,21 +11,16 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-//TODO: Make dataconverter separate methods, then call from runner class
-
 public class DataConverter {
-	private static final String PERSONSFILE_NAME = "data/Persons.csv";
-	private static final String STORESFILE_NAME = "data/Stores.csv";
-	private static final String ITEMSFILE_NAME = "data/Items.csv";
 
-	public static void main(String[] args) {
-		// TODO: need to read in/load csv files from data directory, each has a first
+	public static List<Person> inportPersons(String filepath) {
 
 		// loading persons file input from csv file
-		File personInput = new File(PERSONSFILE_NAME);
+		File personInput = new File(filepath);
 		List<Person> people = new ArrayList<>();
 		int numberOfPeople;
 		try (Scanner scan = new Scanner(personInput)) {
+			// Number of People is unused as list.size() does the same thing
 			numberOfPeople = Integer.parseInt(scan.nextLine());
 			while (scan.hasNextLine()) {
 				String tokens[] = scan.nextLine().split(",");
@@ -53,11 +48,16 @@ public class DataConverter {
 			throw new RuntimeException(e);
 		}
 
+		return people;
+	}
+
+	public static List<Store> inportStores(String filepath) {
 		// loading stores data from input .csv file
-		File storesInput = new File(STORESFILE_NAME);
+		File storesInput = new File(filepath);
 		List<Store> stores = new ArrayList<>();
 		int numberOfStores;
 		try (Scanner scan = new Scanner(storesInput)) {
+			// Number of Stores is unused as list.size() does the same thing
 			numberOfStores = Integer.parseInt(scan.nextLine());
 			while (scan.hasNextLine()) {
 				String tokens[] = scan.nextLine().split(",");
@@ -78,12 +78,16 @@ public class DataConverter {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
+		return stores;
+	}
 
+	public static List<Item> inportItems(String filepath) {
 		// loading items data from input .csv file
-		File itemsInput = new File(ITEMSFILE_NAME);
+		File itemsInput = new File(filepath);
 		List<Item> items = new ArrayList<>();
 		int numberOfItems;
 		try (Scanner scan = new Scanner(itemsInput)) {
+			// Number of Items is unused as list.size() does the same thing
 			numberOfItems = Integer.parseInt(scan.nextLine());
 			while (scan.hasNextLine()) {
 				String tokens[] = scan.nextLine().split(",");
@@ -114,32 +118,13 @@ public class DataConverter {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
+		return items;
+	}
 
-		// Calling Sales
-		List<Sale> sales = Sale.inportSaleDate("data/Sales.csv", items);
+	public static void exportPeopleToXML(List<Person> people) {
 
-		Sale.printStoreReport(sales, stores, people);
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		// implement output as XML File
 		File personOutputXML = new File("data/Persons.xml");
-		File storesOutputXML = new File("data/Stores.xml");
-		File itemsOutputXML = new File("data/Items.xml");
-
-		// TODO in FUTURE VERSION!: implement output as JSON files
-		/*
-		 * File personsOutputJSON = new File("data/Persons.json"); File storesOutputJSON
-		 * = new File("data/Stores.json"); File itemsOutputJSON = new
-		 * File("data/Items.json");
-		 */
 
 		// printing person to Persons.XML
 		PrintWriter p = null;
@@ -156,6 +141,11 @@ public class DataConverter {
 		}
 		p.println("</People>");
 		p.close();
+	}
+
+	public static void exportStoresToXML(List<Store> stores, List<Person> people) {
+
+		File storesOutputXML = new File("data/Stores.xml");
 
 		// printing Stores to Stores.XML
 		PrintWriter printStore = null;
@@ -172,6 +162,11 @@ public class DataConverter {
 		}
 		printStore.println("</Stores>");
 		printStore.close();
+	}
+
+	public static void exportItemsToXML(List<Item> items) {
+
+		File itemsOutputXML = new File("data/Items.xml");
 
 		// printing Items to Items.XML
 		PrintWriter printItem = null;
