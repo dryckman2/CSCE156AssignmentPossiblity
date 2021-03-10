@@ -109,5 +109,11 @@ public class Sale {
 			thisStore.setListOfSales(allSales);
 		}
 	}
+	
+	
+	public static void printReport(List<Store> stores,List<Item> items, List<Person> people){
+		
+	}
+	
 
 }
