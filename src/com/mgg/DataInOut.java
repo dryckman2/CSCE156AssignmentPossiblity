@@ -11,9 +11,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class DataConverter {
+public class DataInOut {
 
-	public static List<Person> inportPersons(String filepath) {
+	public static List<Person> importPersons(String filepath) {
 
 		// loading persons file input from csv file
 		File personInput = new File(filepath);
@@ -51,7 +51,7 @@ public class DataConverter {
 		return people;
 	}
 
-	public static List<Store> inportStores(String filepath) {
+	public static List<Store> importStores(String filepath) {
 		// loading stores data from input .csv file
 		File storesInput = new File(filepath);
 		List<Store> stores = new ArrayList<>();
@@ -81,7 +81,7 @@ public class DataConverter {
 		return stores;
 	}
 
-	public static List<Item> inportItems(String filepath) {
+	public static List<Item> importItems(String filepath) {
 		// loading items data from input .csv file
 		File itemsInput = new File(filepath);
 		List<Item> items = new ArrayList<>();

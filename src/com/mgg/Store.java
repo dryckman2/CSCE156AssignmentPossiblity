@@ -12,6 +12,8 @@ public class Store {
 	private String code;
 	private String managerCode;
 	private Address address;
+	// Initializes Blank but is set after sales data is imported
+	private List<Sale> saleAtStore;
 
 	public Store(String code, String managerCode, Address address) {
 		this.code = code;
@@ -41,13 +43,13 @@ public class Store {
 		for (int i = 1; i <= tabs; i++) {
 			offset += "\t";
 		}
-		data = offset +"<Store>\n";
-		data += offset +"\t<StoreCode>" + this.getCode() + "</StoreCode>\n";
-		data += offset +"\t<Manager>\n";
+		data = offset + "<Store>\n";
+		data += offset + "\t<StoreCode>" + this.getCode() + "</StoreCode>\n";
+		data += offset + "\t<Manager>\n";
 		for (Person man : people) {
 			if (man.getCode().equals(this.getManagerCode())) {
 				data += man.toXMLString(tabs + 2);
-				data += offset +"\t</Manager>\n";
+				data += offset + "\t</Manager>\n";
 			}
 		}
 
@@ -58,10 +60,16 @@ public class Store {
 		return data;
 	}
 
-	
 	public Person getManager(List<Person> people) {
-		return Person.checkCode(people,this.managerCode);
+		return Person.checkCode(people, this.managerCode);
 	}
-	
-	
+
+	public void setListOfSales(List<Sale> allSales) {
+		for (Sale s : allSales) {
+			if (s.getStoreCode().equals(this.code)) {
+				saleAtStore.add(s);
+			}
+		}
+	}
+
 }

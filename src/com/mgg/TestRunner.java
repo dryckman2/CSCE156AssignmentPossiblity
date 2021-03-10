@@ -14,17 +14,17 @@ public class TestRunner {
 	public static void main(String[]args) {
 		
 		//Creates List for CSV data
-		List<Person> people = DataConverter.inportPersons(PERSONSFILE_NAME);
-		List<Store> stores = DataConverter.inportStores(STORESFILE_NAME);
-		List<Item> items = DataConverter.inportItems(ITEMSFILE_NAME);
+		List<Person> people = DataInOut.importPersons(PERSONSFILE_NAME);
+		List<Store> stores = DataInOut.importStores(STORESFILE_NAME);
+		List<Item> items = DataInOut.importItems(ITEMSFILE_NAME);
 		
 		//To XML for People Stores and Items
-		DataConverter.exportPeopleToXML(people);
-		DataConverter.exportStoresToXML(stores,people);
-		DataConverter.exportItemsToXML(items);
+		DataInOut.exportPeopleToXML(people);
+		DataInOut.exportStoresToXML(stores,people);
+		DataInOut.exportItemsToXML(items);
 		
 		//Loads sales form CSV
-		List<Sale> sales = Sale.inportSaleDate("data/Sales.csv", items);
+		List<Sale> sales = Sale.importSaleDate("data/Sales.csv", items);
 
 		Sale.printStoreReport(sales, stores, people);
 		

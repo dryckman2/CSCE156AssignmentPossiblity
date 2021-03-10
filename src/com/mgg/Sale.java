@@ -41,7 +41,7 @@ public class Sale {
 		return items;
 	}
 
-	public static List<Sale> inportSaleDate(String fileName, List<Item> items) {
+	public static List<Sale> importSaleDate(String fileName, List<Item> items) {
 		List<Sale> sales = new ArrayList<Sale>();
 		File input = new File(fileName);
 		int numberOfSales = 0;
