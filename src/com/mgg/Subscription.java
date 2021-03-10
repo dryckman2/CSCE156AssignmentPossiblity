@@ -1,6 +1,8 @@
 package com.mgg;
 
 public class Subscription extends Item {
+	private String beginDate;
+	private String endDate;
 
 	public Subscription(String code, String name, String basePrice) {
 		super(code, name, basePrice);
@@ -25,4 +27,19 @@ public class Subscription extends Item {
 		return data;
 	}
 
+	public String getBeginDate() {
+		return beginDate;
+	}
+
+	public void setBeginDate(String beginDate) {
+		this.beginDate = beginDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
 }

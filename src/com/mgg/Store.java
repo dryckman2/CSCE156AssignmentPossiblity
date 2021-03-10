@@ -9,20 +9,20 @@ package com.mgg;
 import java.util.List;
 
 public class Store {
-	private String storeCode;
+	private String code;
 	private String managerCode;
 	private Address address;
 
-	public Store(String storeCode, String managerCode, Address address) {
-		this.storeCode = storeCode;
+	public Store(String code, String managerCode, Address address) {
+		this.code = code;
 		this.managerCode = managerCode;
 		this.address = address; // possibly make a list<> or array of Strings or split into parts and combine
 								// elsewhere
 	}
 
 	// code
-	public String getStoreCode() {
-		return this.storeCode;
+	public String getCode() {
+		return this.code;
 	}
 
 	// managerCode
@@ -42,10 +42,10 @@ public class Store {
 			offset += "\t";
 		}
 		data = offset +"<Store>\n";
-		data += offset +"\t<StoreCode>" + this.getStoreCode() + "</StoreCode>\n";
+		data += offset +"\t<StoreCode>" + this.getCode() + "</StoreCode>\n";
 		data += offset +"\t<Manager>\n";
 		for (Person man : people) {
-			if (man.getPersonCode().equals(this.getManagerCode())) {
+			if (man.getCode().equals(this.getManagerCode())) {
 				data += man.toXMLString(tabs + 2);
 				data += offset +"\t</Manager>\n";
 			}
@@ -58,4 +58,10 @@ public class Store {
 		return data;
 	}
 
+	
+	public Person getManager(List<Person> people) {
+		return Person.checkCode(people,this.managerCode);
+	}
+	
+	
 }

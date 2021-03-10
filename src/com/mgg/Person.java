@@ -27,7 +27,7 @@ public class Person {
 	}
 
 	// code
-	public String getPersonCode() {
+	public String getCode() {
 		return this.personCode;
 	}
 
@@ -57,7 +57,7 @@ public class Person {
 			offset += "\t";
 		}
 		data = offset + "<Person>\n";
-		data += offset + "\t<PersonCode>" + this.getPersonCode() + "</PersonCode>\n";
+		data += offset + "\t<PersonCode>" + this.getCode() + "</PersonCode>\n";
 		data += offset + "\t<Type>" + this.getType() + "</Type>\n";
 		data += offset + "\t<Name>" + this.getName() + "</Name>\n";
 		// Address XML
@@ -69,4 +69,32 @@ public class Person {
 		data += offset +  "</Person>\n";
 		return data;
 	}
+	
+	
+	public static Person checkCode(List<Person> people, String code) {
+		for (Person p : people) {
+			if (p.getCode().equals(code)) {
+				return p;
+			}
+		}
+		return null;
+	}
+	
+	public void printReport(int tabs) {
+		String offset = "";
+		for(int i = 1;i <= tabs;i++) {
+			offset += "\t";
+		}
+		System.out.println(offset + this.getName());
+		this.address.printReport(tabs);
+		System.out.println(offset + "Emails:");
+		for(String s : this.emailAddresses) {
+			System.out.println(offset + "\t" + s);
+		}
+		
+	}
+	
+	
+	
+	
 }

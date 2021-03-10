@@ -2,6 +2,26 @@ package com.mgg;
 
 public class Service extends Item{
 
+	private String employeeCode;
+	public String getEmployeeCode() {
+		return employeeCode;
+	}
+
+	public void setEmployeeCode(String employeeCode) {
+		this.employeeCode = employeeCode;
+	}
+
+	public double getNumOfHours() {
+		return numOfHours;
+	}
+
+	public void setNumOfHours(double numOfHours) {
+		this.numOfHours = numOfHours;
+	}
+
+	private double numOfHours;
+	
+	
 	public Service(String code, String name, String basePrice) {
 		super(code, name, basePrice);
 		// TODO Auto-generated constructor stub

@@ -1,7 +1,7 @@
 package com.mgg;
 
 /** 
- * Program to 
+ * Program to act as POS and data creation for Modern Geek Gaming
  * @author Matthew Bigge and David Ryckman
  */
 import java.io.File;
@@ -10,6 +10,8 @@ import java.util.List;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+//TODO: Make dataconverter separate methods, then call from runner class
 
 public class DataConverter {
 	private static final String PERSONSFILE_NAME = "data/Persons.csv";
@@ -43,7 +45,7 @@ public class DataConverter {
 				}
 				// construct address and persons
 				Address a = new Address(street, city, state, zip, country);
-				Person p = new Person(personCode, type,lastName, firstName, a, emails);
+				Person p = new Person(personCode, type, lastName, firstName, a, emails);
 				people.add(p);
 			}
 		} catch (FileNotFoundException e) {
@@ -113,12 +115,26 @@ public class DataConverter {
 			throw new RuntimeException(e);
 		}
 
-		// TODO: convert the data into xml or JSON and place them into data directory
+		// Calling Sales
+		List<Sale> sales = Sale.inportSaleDate("data/Sales.csv", items);
+
+		Sale.printStoreReport(sales, stores, people);
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// implement output as XML File
 		File personOutputXML = new File("data/Persons.xml");
 		File storesOutputXML = new File("data/Stores.xml");
 		File itemsOutputXML = new File("data/Items.xml");
-		// TODO: implement output as JSON files
+
+		// TODO in FUTURE VERSION!: implement output as JSON files
 		/*
 		 * File personsOutputJSON = new File("data/Persons.json"); File storesOutputJSON
 		 * = new File("data/Stores.json"); File itemsOutputJSON = new
@@ -152,7 +168,7 @@ public class DataConverter {
 		printStore.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		printStore.println("<Stores>");
 		for (Store temp : stores) {
-			printStore.print(temp.toXMLString(1,people));
+			printStore.print(temp.toXMLString(1, people));
 		}
 		printStore.println("</Stores>");
 		printStore.close();

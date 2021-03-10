@@ -3,6 +3,7 @@ package com.mgg;
 public class Product extends Item {
 
 	private String type;
+	private double quantity;
 
 	public Product(String code, String type, String name, String basePrice) {
 		super(code, name, basePrice);
@@ -43,6 +44,16 @@ public class Product extends Item {
 			break;
 		}
 		return data;
+	}
+	
+	
+	
+	public double getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(double quantity) {
+		this.quantity = quantity;
 	}
 
 }

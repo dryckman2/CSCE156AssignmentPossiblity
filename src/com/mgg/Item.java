@@ -1,4 +1,8 @@
 package com.mgg;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * Class for items data file, constructor/getters/ and setters
  * @author Matthew Bigge and David Ryckman
@@ -36,4 +40,23 @@ public abstract class Item {
 	}
 
 	public abstract String toXMLString(int tabs);
+
+	public static List<String> itemCodeList(List<Item> items) {
+		List<String> codeList = new ArrayList<String>();
+
+		for (Item i : items) {
+			codeList.add(i.getCode());
+		}
+		return codeList;
+	}
+	
+	
+	public static <T extends Item> T checkCode(List<T> items, String code) {
+		for (T i : items) {
+			if (i.getCode().equals(code)) {
+				return i;
+			}
+		}
+		return null;
+	}
 }

@@ -61,4 +61,14 @@ public class Address {
 		return data;
 	}
 
+	// prints Address in letter format
+	public void printReport(int tabs) {
+		String offset = "";
+		for (int i = 1; i <= tabs; i++) {
+			offset += "\t";
+		}
+		System.out.println(offset + this.street);
+		System.out.println(offset + this.city + ", " + this.state + " " + this.zip + " " + this.country);
+	}
+
 }
