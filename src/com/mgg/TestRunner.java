@@ -29,7 +29,7 @@ public class TestRunner {
 		Sale.assignSalesToStores(stores, sales);
 		
 		
-		Sale.printStoreReport(sales, stores, people);
+		Store.printAllStoresReport(sales, stores, people);
 		
 		
 		
