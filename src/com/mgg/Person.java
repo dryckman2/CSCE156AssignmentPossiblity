@@ -79,7 +79,7 @@ public class Person {
 		return data;
 	}
 
-	public static Person checkCode(List<Person> people, String code) {
+	public static Person checkCode(List<? extends Person> people, String code) {
 		for (Person p : people) {
 			if (p.getCode().equals(code)) {
 				return p;
@@ -88,18 +88,13 @@ public class Person {
 		return null;
 	}
 
-	public void printReport(int tabs) {
-		String offset = "";
-		for (int i = 1; i <= tabs; i++) {
-			offset += "\t";
-		}
-		System.out.println(offset + this.getName());
-		this.address.printReport(tabs);
-		System.out.println(offset + "Emails:");
-		for (String s : this.emailAddresses) {
-			System.out.println(offset + "\t" + s);
-		}
-
+	public void printReport() {
+		System.out.println(this.getName() + "   ("+ this.getEmailAddresses().toString() + ")");
+		this.getAddress().printReport(1);
 	}
+	
+	
+	
+	
 
 }

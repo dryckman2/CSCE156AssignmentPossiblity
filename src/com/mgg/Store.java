@@ -74,4 +74,18 @@ public class Store {
 		}
 	}
 
+	public int getSalesCount() {
+		return saleAtStore.size();
+	}
+
+	public double getTotalOfSales() {
+		double totalSales = 0;
+		for (Sale s : saleAtStore) {
+			totalSales += s.getTotal();
+
+		}
+
+		return totalSales;
+	}
+
 }

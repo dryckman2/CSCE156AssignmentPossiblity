@@ -3,7 +3,6 @@ package com.mgg;
 public class Product extends Item {
 
 	private String type;
-	private double quantity;
 	private boolean used;
 
 	public Product(String code, String type, String name, double basePrice, boolean used) {
@@ -38,19 +37,11 @@ public class Product extends Item {
 		}
 		return data;
 	}
-
-	public double getQuantity() {
-		return quantity;
+	
+	public boolean getUsed() {
+		return used;
 	}
 
-	public void setQuantity(double quantity) {
-		this.quantity = quantity;
-	}
 
-	@Override
-	public double getCost() {
-		double cost = basePrice * quantity;
-		return cost;
-	}
 
 }

@@ -2,7 +2,6 @@ package com.mgg;
 
 public class GiftCard extends Item {
 
-	private double amount;
 
 	public GiftCard(String code, String name, double basePrice) {
 		super(code, name, basePrice);
@@ -13,15 +12,7 @@ public class GiftCard extends Item {
 	public String getType() {
 		return "PG";
 	}
-	
-	public void setAmount(double a) {
-		amount = a;
-	}
-	
-	@Override
-	public double getCost() {
-		return amount;
-	}
+
 
 	@Override
 	public String toXMLString(int tabs) {
@@ -34,6 +25,5 @@ public class GiftCard extends Item {
 		data += offset + "\t<Name>" + this.getName() + "</Name>\n";
 		data += offset + "</GiftCard>\n";
 		return data;
-	}
-
+	} 
 }

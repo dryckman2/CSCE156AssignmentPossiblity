@@ -1,30 +1,10 @@
 package com.mgg;
 
-public class Service extends Item{
-
-	private String employeeCode;
-	private double numOfHours;
-	
+public class Service extends Item{	
 	
 	public Service(String code, String name, double basePrice) {
 		super(code, name, basePrice);
 		// TODO Auto-generated constructor stub
-	}
-	
-	public String getEmployeeCode() {
-		return employeeCode;
-	}
-
-	public void setEmployeeCode(String employeeCode) {
-		this.employeeCode = employeeCode;
-	}
-
-	public double getNumOfHours() {
-		return numOfHours;
-	}
-
-	public void setNumOfHours(double numOfHours) {
-		this.numOfHours = numOfHours;
 	}
 
 	@Override
@@ -44,12 +24,6 @@ public class Service extends Item{
 		data += offset + "\t<HourlyRate>" + this.getBasePrice() + "</HourlyRate>\n";
 		data += offset + "</Service>\n";
 		return data;
-	}
-
-	@Override
-	public double getCost() {
-		double cost = basePrice * numOfHours;
-		return cost;
 	}
 
 }

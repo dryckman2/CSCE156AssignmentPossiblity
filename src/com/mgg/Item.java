@@ -14,7 +14,7 @@ public abstract class Item {
 
 	private String code;
 	private String name;
-	protected double basePrice;
+	private double basePrice;
 
 	public Item(String code, String name, double basePrice) {
 		this.code = code;
@@ -38,10 +38,9 @@ public abstract class Item {
 	public double getBasePrice() {
 		return this.basePrice;
 	}
-	
-	public abstract double getCost();
 
 	public abstract String toXMLString(int tabs);
+	
 
 	public static List<String> itemCodeList(List<Item> items) {
 		List<String> codeList = new ArrayList<String>();
@@ -56,6 +55,7 @@ public abstract class Item {
 	public static <T extends Item> T checkCode(List<T> items, String code) {
 		for (T i : items) {
 			if (i.getCode().equals(code)) {
+				//Return Copy of i  not i  
 				return i;
 			}
 		}

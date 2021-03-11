@@ -12,7 +12,6 @@ public class Employee extends Person {
 		this.salesByEmployee = new ArrayList<Sale>();
 	}
 
-
 	public static List<Employee> pickEmployees(List<Person> allPeople) {
 		List<Employee> employeesOnly = new ArrayList<Employee>();
 		for (Person p : allPeople) {
@@ -24,7 +23,6 @@ public class Employee extends Person {
 		return employeesOnly;
 	}
 
-	
 	public void setListOfSales(List<Sale> allSales) {
 		for (Sale s : allSales) {
 			if (s.getEmployeeCode().equals(this.getCode())) {
@@ -33,27 +31,18 @@ public class Employee extends Person {
 		}
 	}
 
-
 	public int getSalesCount() {
 		return salesByEmployee.size();
 	}
 
-
 	public double getTotalOfSales() {
 		double totalSales = 0;
-		for(Sale s:salesByEmployee) {
-			for(Item i : s.getItems()) {
-				System.out.println(i.getCost() + "    " + i.getName());
-				
-				totalSales += i.getCost();
-			}
+		for (Sale s : salesByEmployee) {
+			totalSales += s.getTotal();
+
 		}
-		
+
 		return totalSales;
 	}
-	
-	
-	
-	
-	
+
 }
