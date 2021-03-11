@@ -1,7 +1,11 @@
 package com.mgg;
 
 import java.util.List;
-
+/**
+ * Demo Runner for whole project
+ * @author David Ryckman and Matt Bigge
+ *
+ */
 public class TestRunner {
 
 	private static final String PERSONSFILE_NAME = "data/Persons.csv";
@@ -25,12 +29,12 @@ public class TestRunner {
 		DataInOut.exportItemsToXML(items);
 
 		// Loads sales form CSV
-		List<Sale> sales = Sale.importSaleData("data/Sales.csv", items, customers, employees);
+		List<Sale> sales = DataInOut.importSaleData("data/Sales.csv", items, customers, employees);
 
 		// Gives sales list to every store and every employee where appropriate
 		Sale.assignSalesToStores(stores, sales);
 		Sale.assignSalesToEmployees(employees, sales);
 
-		Sale.printReport(stores, items, people, sales, employees);
+		DataInOut.printReport(stores, items, people, sales, employees);
 	}
 }

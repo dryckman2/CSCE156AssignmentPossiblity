@@ -1,6 +1,6 @@
 package com.mgg;
 /*
- * Class for person data file, constructor/getters/ and setters
+ * Class for person data file
  * @author Matthew Bigge and David Ryckman
  * @cseLogin mbigge
  * @date 
@@ -22,22 +22,18 @@ public class Person {
 		this.type = type;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.address = address; // list or array for different elements or split into parts and combine
-								// elsewhere
-		this.emailAddresses = emails; // due to having multiple potential emails, maybe make <list> or array
+		this.address = address;
+		this.emailAddresses = emails;
 	}
 
-	// code
 	public String getCode() {
 		return this.personCode;
 	}
 
-	// type
 	public String getType() {
 		return this.type;
 	}
 
-	// names
 	public String getName() {
 		return lastName + ", " + firstName;
 	}
@@ -60,6 +56,12 @@ public class Person {
 		return this.emailAddresses;
 	}
 
+	/**
+	 * Makes String that represent individual persons in XML data
+	 * 
+	 * @param tabs
+	 * @return XMLed String for persons
+	 */
 	public String toXMLString(int tabs) {
 		String data, offset = "";
 		for (int i = 1; i <= tabs; i++) {
@@ -78,7 +80,12 @@ public class Person {
 		data += offset + "</Person>\n";
 		return data;
 	}
-
+/**
+ * Checks given code and returns that person from list of people
+ * @param people
+ * @param code
+ * @return person with code
+ */
 	public static Person checkCode(List<? extends Person> people, String code) {
 		for (Person p : people) {
 			if (p.getCode().equals(code)) {
@@ -89,12 +96,8 @@ public class Person {
 	}
 
 	public void printReport() {
-		System.out.println(this.getName() + "   ("+ this.getEmailAddresses().toString() + ")");
+		System.out.println(this.getName() + "   (" + this.getEmailAddresses().toString() + ")");
 		this.getAddress().printReport(1);
 	}
-	
-	
-	
-	
 
 }

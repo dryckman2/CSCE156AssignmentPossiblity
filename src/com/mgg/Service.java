@@ -1,10 +1,15 @@
 package com.mgg;
 
-public class Service extends Item{	
-	
+/**
+ * Class to set template for Services
+ * 
+ * @author David Ryckman and Matt Bigge
+ *
+ */
+public class Service extends Item {
+
 	public Service(String code, String name, double basePrice) {
 		super(code, name, basePrice);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

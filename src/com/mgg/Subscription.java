@@ -1,5 +1,11 @@
 package com.mgg;
 
+/**
+ * Class to set template for subscriptions
+ * 
+ * @author David Ryckman and Matt Bigge
+ *
+ */
 public class Subscription extends Item {
 
 	public Subscription(String code, String name, double basePrice) {

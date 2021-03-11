@@ -1,5 +1,13 @@
 package com.mgg;
 
+/**
+ * Products is catch all for items that are not services or subscriptions
+ * 
+ * @author Matthew Bigge and David Ryckman
+ * @cseLogin mbigge
+ * @date
+ *
+ */
 public class Product extends Item {
 
 	private String type;
@@ -37,11 +45,9 @@ public class Product extends Item {
 		}
 		return data;
 	}
-	
+
 	public boolean getUsed() {
 		return used;
 	}
-
-
 
 }

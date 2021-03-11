@@ -1,5 +1,9 @@
 package com.mgg;
-
+/**
+ * Takes gift card template and creates specific version to be inserted into list of purchased
+ * @author Matthew Bigge and David Ryckman
+ *
+ */
 public class OrderedGiftCard extends GiftCard implements Purchased{
 	
 	private double amount;
@@ -18,7 +22,6 @@ public class OrderedGiftCard extends GiftCard implements Purchased{
 	public double getTaxTotal() {
 		return getSubTotal() * 0.0725;
 	}
-	
 	
 	public void printReport() {
 		System.out.println(this.getName());

@@ -1,5 +1,9 @@
 package com.mgg;
-
+/**
+ * Class that sets up template gift cards 
+ * @author Matthew Bigge and David Ryckman
+ *
+ */
 public class GiftCard extends Item {
 
 

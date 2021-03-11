@@ -1,5 +1,9 @@
 package com.mgg;
-
+/**
+ * Takes product template and creates specific version to be inserted into list of purchased
+ * @author Matthew Bigge and David Ryckman
+ *
+ */
 public class OrderedProduct extends Product implements Purchased {
 
 	private double quantity;

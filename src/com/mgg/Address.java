@@ -1,6 +1,6 @@
 package com.mgg;
 /*
- * Class for store data file, constructor/getters/ and setters
+ * Addresses for Stores and People
  * @author Matthew Bigge and David Ryckman
  * @cseLogin mbigge
  * @date 
@@ -21,31 +21,32 @@ public class Address {
 		this.country = country;
 	}
 
-	// street
 	public String getStreet() {
 		return this.street;
 	}
 
-	// city
 	public String getCity() {
 		return this.city;
 	}
 
-	// state
 	public String getState() {
 		return this.state;
 	}
 
-	// zip
 	public String getZip() {
 		return this.zip;
 	}
 
-	// country
 	public String getCountry() {
 		return this.country;
 	}
 
+	/**
+	 * Puts Address in XML formated String
+	 * 
+	 * @param tabs
+	 * @return XML Formated Address
+	 */
 	public String toXMLString(int tabs) {
 		String data, offset = "";
 		for (int i = 1; i <= tabs; i++) {
@@ -61,7 +62,11 @@ public class Address {
 		return data;
 	}
 
-	// prints Address in letter format
+	/**
+	 * Prints Address in letter format
+	 * 
+	 * @param tabs
+	 */
 	public void printReport(int tabs) {
 		String offset = "";
 		for (int i = 1; i <= tabs; i++) {

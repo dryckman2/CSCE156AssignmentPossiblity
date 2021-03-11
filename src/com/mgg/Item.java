@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Class for items data file, constructor/getters/ and setters
+ * Class for items data file
  * @author Matthew Bigge and David Ryckman
  * @cseLogin mbigge
  * @date 
@@ -26,21 +26,23 @@ public abstract class Item {
 		return this.code;
 	}
 
-	// type
 	public abstract String getType();
 
-	// name
 	public String getName() {
 		return this.name;
 	}
 
-	// basePrice
 	public double getBasePrice() {
 		return this.basePrice;
 	}
 
+	/**
+	 * Makes String that represent individual items in XML data
+	 * 
+	 * @param tabs
+	 * @return XMLed String for Items
+	 */
 	public abstract String toXMLString(int tabs);
-	
 
 	public static List<String> itemCodeList(List<Item> items) {
 		List<String> codeList = new ArrayList<String>();
@@ -50,12 +52,18 @@ public abstract class Item {
 		}
 		return codeList;
 	}
-	
-	
+
+	/**
+	 * Checks given code and returns that item template from list of item templates
+	 * 
+	 * @param <T>
+	 * @param items
+	 * @param code
+	 * @return item from items with code
+	 */
 	public static <T extends Item> T checkCode(List<T> items, String code) {
 		for (T i : items) {
 			if (i.getCode().equals(code)) {
-				//Return Copy of i  not i  
 				return i;
 			}
 		}

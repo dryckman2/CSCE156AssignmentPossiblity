@@ -1,6 +1,6 @@
 package com.mgg;
 /*
- * Class for store data file, constructor/getters/ and setters
+ * Class for store data file
  * @author Matthew Bigge and David Ryckman
  * @cseLogin mbigge
  * @date 
@@ -39,7 +39,13 @@ public class Store {
 		return this.address;
 	}
 
-	// Requires a list of people to locate the manager in
+	/**
+	 * Turns store to XML String. Needs People to find manager in
+	 * 
+	 * @param tabs
+	 * @param people
+	 * @return
+	 */
 	public String toXMLString(int tabs, List<Person> people) {
 		String data, offset = "";
 		for (int i = 1; i <= tabs; i++) {
@@ -62,6 +68,12 @@ public class Store {
 		return data;
 	}
 
+	/**
+	 * Returns the manager as a person from people
+	 * 
+	 * @param people
+	 * @return Manager
+	 */
 	public Person getManager(List<Person> people) {
 		return Person.checkCode(people, this.managerCode);
 	}
