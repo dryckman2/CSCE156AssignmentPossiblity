@@ -57,7 +57,7 @@ public class Subscription extends Item {
 	@Override
 	public double getCost() {
 		long days = ChronoUnit.DAYS.between(beginDate,endDate) + 1;
-		double cost = basePrice * days;
+		double cost = (basePrice / 365)* days;
 		return cost;
 	}
 }

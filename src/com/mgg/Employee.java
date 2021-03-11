@@ -32,6 +32,25 @@ public class Employee extends Person {
 			}
 		}
 	}
+
+
+	public int getSalesCount() {
+		return salesByEmployee.size();
+	}
+
+
+	public double getTotalOfSales() {
+		double totalSales = 0;
+		for(Sale s:salesByEmployee) {
+			for(Item i : s.getItems()) {
+				System.out.println(i.getCost() + "    " + i.getName());
+				
+				totalSales += i.getCost();
+			}
+		}
+		
+		return totalSales;
+	}
 	
 	
 	

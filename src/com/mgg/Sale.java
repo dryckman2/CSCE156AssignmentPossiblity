@@ -117,15 +117,14 @@ public class Sale {
 	}
 	
 	
-	public static void printReport(List<Store> stores,List<Item> items, List<Person> people,List<Sale> allSales){
+	public static void printReport(List<Store> stores,List<Item> items, List<Person> people,List<Sale> allSales,List<Employee> employees){
 		
-		
-		for(Sale s : allSales) {
-			for(Item i :s.getItems()) {
-				i.getCost();
-			}
+		System.out.println("Sales Person Summary Report");
+		System.out.println("------------------------------------");
+		System.out.printf("%-20s%-15s%-15s\n","SalesPerson","# Sales","Total");
+		for(Employee e: employees) {
+			System.out.printf("%-20s%-15d%-15f\n",e.getName(),e.getSalesCount(),e.getTotalOfSales());
 		}
-		
 		
 		
 		
