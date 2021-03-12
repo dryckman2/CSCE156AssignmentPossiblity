@@ -3,9 +3,9 @@ Sales Person Summary Report
 SalesPerson         # Sales        Total          
 Quarry, Staci       3              1174.11
 Michelotti, Nonnah  2               473.12
-Leavold, Wit        3              1102.20
+Leavold, Wit        3              1102.19
 ------------------------------------
-                    8              2749.43
+                    8              2749.42
 
 
 Store Person Summary Report
@@ -14,10 +14,10 @@ Store               Manager        # Sales        Total
 3c0234              Quarry, Staci  3              1174.11
 9f352c              Leavold, Wit   0                 0.00
 73668b              Quarry, Staci  0                 0.00
-96f2cf              Quarry, Staci  3               803.98
+96f2cf              Quarry, Staci  3               803.97
 25d901              Leavold, Wit   2               771.34
 -------------------------------------------------------
-                                   8              2749.43
+                                   8              2749.42
 Sale  #SALE105
 Store  #3c0234
 Customer:
@@ -59,7 +59,7 @@ Quarry, Staci   ([squarry0@reverbnation.com, squarry0@salon.com])
 Item                                                               Total
 ------------------------------------------------------------------------
 Oculus Rift
-	(Used Item #9b6e30at $159.99 each)                          $ 159.99
+	(Used Item #9b6e30at $127.99 each)                          $ 159.99
 Game Addiction Counseling
 	(Service #740515 by Leavold, Wit 2.0hrs at $1.99/hr)        $ 3.98
 ------------------------------------------------------------------------
@@ -133,7 +133,7 @@ Leavold, Wit   ([wleavold2@npr.org, wleavold2@craigslist.org])
 Item                                                               Total
 ------------------------------------------------------------------------
 Animal Crossings
-	(Used Item #0ec6e9at $47.99 each)                           $ 95.98
+	(Used Item #0ec6e9at $38.39 each)                           $ 95.98
 Nintendo Switch Lite
 	(New Item #1ed5b7at $199.99 each)                           $ 399.98
 ------------------------------------------------------------------------
@@ -163,8 +163,8 @@ Diet Mt Dew (20oz)
 	(New Item #c547e7at $1.99 each)                             $ 238.80
 ------------------------------------------------------------------------
                                                            Subtotal $ 308.49
-                                                                Tax $ 22.37
-                                                              Total $ 330.86
+                                                                Tax $ 22.36
+                                                              Total $ 330.85
 
 
 

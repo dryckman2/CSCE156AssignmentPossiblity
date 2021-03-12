@@ -15,16 +15,21 @@ public class OrderedProduct extends Product implements Purchased {
 
 	@Override
 	public double getSubTotal() {
-		double cost = this.getBasePrice() * quantity;
-		if (getUsed()) {
-			cost = cost * .80;
-		}
-		return Sale.changeRound(cost);
+		return Sale.changeRound(this.getBasePrice() * quantity);
 	}
 
 	@Override
 	public double getTaxTotal() {
-		return getSubTotal() * 0.0725;
+		return Sale.changeRound(getSubTotal() * 0.0725);
+	}
+	
+	public double getBasePrice(){
+		double cost = super.getBasePrice();
+		if (getUsed()) {
+			cost = cost * .80;
+		}
+		return Sale.changeRound(cost);
+		
 	}
 
 	public void printReport() {

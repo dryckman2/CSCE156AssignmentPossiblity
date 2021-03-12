@@ -69,7 +69,7 @@ public class Sale {
 
 	public double getTotal() {
 		double total = subtotal + tax;
-		total = total - (total * discountRate);
+		total = total - Sale.changeRound(total * discountRate);
 		return Sale.changeRound(total);
 	}
 
@@ -153,7 +153,7 @@ public class Sale {
 		System.out.printf("%68s$ %.2f\n", "Tax ", this.getTax());
 		if (this.getDiscountRate() != 0.0) {
 			String discount = "Dsicount (" + this.getDiscountRate() * 100 + "%) ";
-			System.out.printf("%68s$ %.2f\n", discount, (this.getDiscountRate() * (this.subtotal + this.getTax())));
+			System.out.printf("%68s$ %.2f\n", discount, Sale.changeRound(this.getDiscountRate() * (this.subtotal + this.getTax())));
 		}
 		System.out.printf("%68s$ %.2f\n", "Total ", this.getTotal());
 

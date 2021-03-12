@@ -6,8 +6,8 @@ import java.util.List;
  * @author David Ryckman and Matt Bigge
  *
  */
-public class TestRunner {
-
+public class SalesReport {
+             
 	private static final String PERSONSFILE_NAME = "data/Persons.csv";
 	private static final String STORESFILE_NAME = "data/Stores.csv";
 	private static final String ITEMSFILE_NAME = "data/Items.csv";

@@ -33,7 +33,7 @@ public abstract class Item {
 	}
 
 	public double getBasePrice() {
-		return this.basePrice;
+		return Sale.changeRound(this.basePrice);
 	}
 
 	/**

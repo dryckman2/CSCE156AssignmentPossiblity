@@ -20,7 +20,7 @@ public class OrderedGiftCard extends GiftCard implements Purchased{
 
 	@Override
 	public double getTaxTotal() {
-		return getSubTotal() * 0.0725;
+		return Sale.changeRound(getSubTotal() * 0.0725);
 	}
 	
 	public void printReport() {

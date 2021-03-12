@@ -26,7 +26,7 @@ public class OrderedService extends Service implements Purchased {
 	}
 
 	public double getTaxTotal() {
-		return getSubTotal() * 0.0285;
+		return Sale.changeRound(getSubTotal() * 0.0285);
 	}
 
 	public void printReport() {

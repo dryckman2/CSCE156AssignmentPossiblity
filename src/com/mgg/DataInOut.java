@@ -148,7 +148,7 @@ public class DataInOut {
 		}
 		return items;
 	}
-	
+
 	/**
 	 * Takes Sales CSV data and creates appropriate list of all sales
 	 * 
@@ -221,6 +221,8 @@ public class DataInOut {
 					}
 
 				}
+				subtotal = Sale.changeRound(subtotal);
+				tax = Sale.changeRound(tax);
 				Sale s = new Sale(saleCode, storeCode, customerCode, employeeCode, cart, subtotal, tax);
 				s.runCustomerEmployeeDiscount(customers, employees);
 				sales.add(s);
