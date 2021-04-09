@@ -15,10 +15,12 @@ public class SalesReport {
 	public static void main(String[] args) {
 
 		// Creates List for CSV data
-		List<Person> people = DataInOut.importPersons(PERSONSFILE_NAME);
-		List<Store> stores = DataInOut.importStores(STORESFILE_NAME);
-		List<Item> items = DataInOut.importItems(ITEMSFILE_NAME);
-
+		DatabaseConnection.connectionStart();
+		List<Person> people = DatabaseConnection.generatePeople();
+		List<Store> stores = DatabaseConnection.generateStore();
+		List<Item> items = DatabaseConnection.generateItem();
+		
+		
 		// Picks Employees out of people for later use
 		List<Employee> employees = Employee.pickEmployees(people);
 		List<Customer> customers = Customer.pickCustomers(people);
@@ -29,12 +31,19 @@ public class SalesReport {
 		DataInOut.exportItemsToXML(items);
 
 		// Loads sales form CSV
-		List<Sale> sales = DataInOut.importSaleData("data/Sales.csv", items, customers, employees);
-
+		List<Sale> sales = DatabaseConnection.generateSale(items, customers, employees);
+		DatabaseConnection.close();
 		// Gives sales list to every store and every employee where appropriate
 		Sale.assignSalesToStores(stores, sales);
 		Sale.assignSalesToEmployees(employees, sales);
 
+		
+		
 		DataInOut.printReport(stores, items, people, sales, employees);
+		
+		
+		
+		
+		
 	}
 }
