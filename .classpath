@@ -13,8 +13,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/gson-2.8.6.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.23.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-api-2.14.1.jar"/>
-	<classpathentry kind="lib" path="lib/c3p0-0.9.5.5.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-core-2.14.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

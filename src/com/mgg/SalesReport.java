@@ -15,10 +15,10 @@ public class SalesReport {
 	public static void main(String[] args) {
 
 		// Creates List for CSV data
-		DatabaseConnection.connectionStart();
-		List<Person> people = DatabaseConnection.generatePeople();
-		List<Store> stores = DatabaseConnection.generateStore();
-		List<Item> items = DatabaseConnection.generateItem();
+		DatabaseConnection dc = new DatabaseConnection();
+		List<Person> people = dc.generatePeople();
+		List<Store> stores = dc.generateStore();
+		List<Item> items = dc.generateItem();
 		
 		
 		// Picks Employees out of people for later use
@@ -31,8 +31,8 @@ public class SalesReport {
 		DataInOut.exportItemsToXML(items);
 
 		// Loads sales form CSV
-		List<Sale> sales = DatabaseConnection.generateSale(items, customers, employees);
-		DatabaseConnection.close();
+		List<Sale> sales = dc.generateSale(items, customers, employees);
+		dc.close();
 		// Gives sales list to every store and every employee where appropriate
 		Sale.assignSalesToStores(stores, sales);
 		Sale.assignSalesToEmployees(employees, sales);

@@ -1,4 +1,11 @@
 package com.mgg;
+/**
+ * Class Connects to database and receives Data
+ * 
+ * @author David Ryckman and Matt Bigge
+ *
+ */
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,15 +18,17 @@ import java.util.List;
 
 public class DatabaseConnection {
 
+	//SQL Login
 	private static final String USER = "dryckman";
 	private static final String PASSWORD = "3pF-my";
 	private static final String URL = "jdbc:mysql://cse.unl.edu/dryckman?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	
+	//Global Connection so each query doesn't make its own
+	private  Connection conn;
+	private  PreparedStatement ps;
+	private  ResultSet rs;
 
-	private static Connection conn;
-	private static PreparedStatement ps;
-	private static ResultSet rs;
-
-	public static void connectionStart() {
+	public DatabaseConnection() {
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
 		} catch (SQLException e) {
@@ -27,7 +36,10 @@ public class DatabaseConnection {
 		}
 	}
 
-	public static void close() {
+	/**
+	 * Closes Standard connection made to database
+	 */
+	public void close() {
 		try {
 			conn.close();
 			ps.close();
@@ -37,7 +49,10 @@ public class DatabaseConnection {
 		}
 	}
 
-	public static List<Person> generatePeople() {
+	/**
+	 * generates list of People form the database
+	 */
+	public List<Person> generatePeople() {
 
 		List<Person> people = new ArrayList<>();
 		String query = "select p.personId, p.referencecode, p.personType,p.lastName, p.firstName, a.street, a.city, s.name as stateName, a.zip,c.name as countryName"
@@ -47,6 +62,7 @@ public class DatabaseConnection {
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while (rs.next()) {
+				//Gather From Results
 				int personId = rs.getInt("personId");
 				String personCode = rs.getString("referencecode");
 				String type = rs.getString("personType");
@@ -57,8 +73,9 @@ public class DatabaseConnection {
 				String state = rs.getString("stateName");
 				String zip = rs.getString("zip");
 				String country = rs.getString("countryName");
+				
+				//Second Query to get Email Addresses
 				List<String> emails = new ArrayList<>();
-
 				query = "select emailAddress from Email where personId = ?;";
 				ps = conn.prepareStatement(query);
 				ps.setInt(1, personId);
@@ -67,6 +84,8 @@ public class DatabaseConnection {
 					emails.add(rs2.getString("emailAddress"));
 				}
 				rs2.close();
+				
+				//Creation
 				Address a = new Address(street, city, state, zip, country);
 				Person p = new Person(personCode, type, lastName, firstName, a, emails);
 				people.add(p);
@@ -77,8 +96,10 @@ public class DatabaseConnection {
 		return people;
 
 	}
-
-	public static List<Store> generateStore() {
+	/**
+	 * generates list of Stores from the database
+	 */
+	public List<Store> generateStore() {
 		List<Store> stores = new ArrayList<>();
 		String query = "select s.referencecode,p.referencecode as managerCode, a.street,a.city, st.name as stateName, a.zip,c.name as countryName "
 				+ "from Store s " + "join Address a on a.addressId = s.addressId "
@@ -88,6 +109,7 @@ public class DatabaseConnection {
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while (rs.next()) {
+				//Gather data from query
 				String storeCode = rs.getString("referencecode");
 				String managerCode = rs.getString("managerCode");
 				String street = rs.getString("street");
@@ -95,7 +117,8 @@ public class DatabaseConnection {
 				String state = rs.getString("stateName");
 				String zip = rs.getString("zip");
 				String country = rs.getString("countryName");
-
+				
+				//Creation
 				Address a = new Address(street, city, state, zip, country);
 				Store s = new Store(storeCode, managerCode, a);
 				stores.add(s);
@@ -105,8 +128,10 @@ public class DatabaseConnection {
 		}
 		return stores;
 	}
-
-	public static List<Item> generateItem() {
+	/**
+	 * generates list of items from the database
+	 */
+	public List<Item> generateItem() {
 		List<Item> items = new ArrayList<>();
 		String query = "select referenceCode, name,basePrice,itemType from ItemTemplate;";
 
@@ -114,11 +139,13 @@ public class DatabaseConnection {
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while (rs.next()) {
+				//Data From Query
 				String itemCode = rs.getString("referenceCode");
 				String name = rs.getString("name");
 				double price = rs.getDouble("basePrice");
 				String type = rs.getString("itemType");
 
+				//Construction
 				Item i = null;
 				switch (type) {
 				case "SB":
@@ -148,8 +175,10 @@ public class DatabaseConnection {
 		}
 		return items;
 	}
-
-	public static List<Sale> generateSale(List<Item> items, List<Customer> customers, List<Employee> employees) {
+	/**
+	 * generates list of Sales from the database
+	 */
+	public List<Sale> generateSale(List<Item> items, List<Customer> customers, List<Employee> employees) {
 		List<Sale> sales = new ArrayList<Sale>();
 		Item type;
 		double subtotal, tax;
@@ -162,6 +191,7 @@ public class DatabaseConnection {
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while (rs.next()) {
+				//Data From Query
 				subtotal = 0;
 				tax = 0;
 				String saleCode = rs.getString("saleCode");
@@ -169,8 +199,9 @@ public class DatabaseConnection {
 				String customerCode = rs.getString("customerCode");
 				String employeeCode = rs.getString("employeeCode");
 				int saleId = rs.getInt("saleId");
+				
+				//Second Query for Items
 				List<Purchased> cart = new ArrayList<Purchased>();
-
 				query = "select it.referenceCode as itemCode,si.amount,si.quantity,si.beginDate,si.endDate,emp.referenceCode as serviceEmployee, si.numOfHours from Sale  s "
 						+ "join SoldItem si on si.saleId = s.saleId "
 						+ "join ItemTemplate it on it.itemTemplateId = si.itemTemplateId "
@@ -179,6 +210,7 @@ public class DatabaseConnection {
 				ps = conn.prepareStatement(query);
 				ps.setInt(1, saleId);
 				ResultSet rs2 = ps.executeQuery();
+				//Construction
 				while (rs2.next()) {
 					type = Item.checkCode(items, rs2.getString("itemCode"));
 					if (type.getType().equals("PU") || type.getType().equals("PN")) {
