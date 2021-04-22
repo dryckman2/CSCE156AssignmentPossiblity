@@ -220,7 +220,7 @@ public class DatabaseConnection {
 						tax += specifiedType.getTaxTotal();
 					}
 					if (type.getType().equals("GC")) {
-						OrderedGiftCard specifiedType = new OrderedGiftCard((GiftCard) type, rs2.getInt("amount"));
+						OrderedGiftCard specifiedType = new OrderedGiftCard((GiftCard) type, rs2.getDouble("amount"));
 						cart.add(specifiedType);
 						subtotal += specifiedType.getSubTotal();
 						tax += specifiedType.getTaxTotal();
