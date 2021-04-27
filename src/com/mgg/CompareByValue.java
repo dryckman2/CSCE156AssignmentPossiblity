@@ -1,5 +1,7 @@
 package com.mgg;
-
+/**
+ * Bare Bones Comparator for sorting Sales by Total
+ */
 import java.util.Comparator;
 
 public class CompareByValue implements Comparator<Sale>{

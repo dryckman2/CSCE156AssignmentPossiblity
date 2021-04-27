@@ -29,11 +29,13 @@ public class SalesReport {
 		DataInOut.exportItemsToXML(items);
 
 		// Loads sales form CSV
+		//Each List Is sorted based on Comparator argument
 		CustomList<Sale> saleByCustomer = dc.generateSale(items, customers, employees,stores,new ComparebyCustomerName());
 		CustomList<Sale> saleByTotal = dc.generateSale(items, customers, employees,stores,new CompareByValue());
 		CustomList<Sale> salesByStore = dc.generateSale(items, customers, employees,stores,new CompareByStoreEmp());
 		dc.close();
-	
+		
+		//Display
 		System.out.println("Sales By Customer");
 		System.out.println("-------------------");
 		Sale.smallReport(saleByCustomer);
@@ -47,6 +49,7 @@ public class SalesReport {
 		System.out.println("Sales By Store");
 		System.out.println("-------------------");
 		Sale.smallReport(salesByStore);
+		
 		
 	}
 }

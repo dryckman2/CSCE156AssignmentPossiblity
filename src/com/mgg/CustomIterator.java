@@ -1,6 +1,8 @@
 package com.mgg;
 import java.util.Iterator;
-
+/**
+ * Iterator to allow CustomList to be used in for each loops
+ */
 public class CustomIterator<T> implements Iterator<T>{
 	
 	private CustomList<T> cl;
@@ -14,8 +16,7 @@ public class CustomIterator<T> implements Iterator<T>{
 	public boolean hasNext() {
 		return  (index < cl.size());
 	}
-
-	@Override
+	
 	public T next() {
 		return cl.get(index++);
 	}
