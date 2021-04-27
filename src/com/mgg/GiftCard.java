@@ -14,7 +14,7 @@ public class GiftCard extends Item {
 
 	@Override
 	public String getType() {
-		return "GC";
+		return "PG";
 	}
 
 

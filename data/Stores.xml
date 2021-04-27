@@ -1,132 +1,129 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Stores>
 	<Store>
-		<StoreCode>3c0234</StoreCode>
+		<StoreCode>85s9ec</StoreCode>
 		<Manager>
 			<Person>
-				<PersonCode>fdc267</PersonCode>
+				<PersonCode>0oqico</PersonCode>
 				<Type>E</Type>
-				<Name>Quarry, Staci</Name>
+				<Name>Suddell, Barbie</Name>
 				<Address>
-					<Street>601 Lotheville Road</Street>
-					<City>Savannah</City>
-					<State>GA</State>
-					<ZIP>31405</ZIP>
+					<Street>79443 Kings Drive</Street>
+					<City>Boston</City>
+					<State>MA</State>
+					<ZIP>2114</ZIP>
 					<Country>US</Country>
 				</Address>
-				<Email>squarry0@reverbnation.com</Email>
-				<Email>squarry0@salon.com</Email>
+				<Email>bsuddell2@studiopress.com</Email>
+				<Email>bsuddell@gmail.com</Email>
 			</Person>
 		</Manager>
 		<Address>
-			<Street>2 Crest Line Way</Street>
-			<City>New York City</City>
-			<State>NY</State>
-			<ZIP>10184</ZIP>
+			<Street>5520 Summer Ridge Place</Street>
+			<City>Houston</City>
+			<State>TX</State>
+			<ZIP>77281</ZIP>
 			<Country>US</Country>
 		</Address>
 	</Store>
 	<Store>
-		<StoreCode>9f352c</StoreCode>
+		<StoreCode>tdt1l6</StoreCode>
 		<Manager>
 			<Person>
-				<PersonCode>aa887a</PersonCode>
+				<PersonCode>02lrcn</PersonCode>
 				<Type>E</Type>
-				<Name>Leavold, Wit</Name>
+				<Name>Ricker, Corey</Name>
 				<Address>
-					<Street>65337 Straubel Place</Street>
-					<City>Muncie</City>
-					<State>IN</State>
-					<ZIP>47306</ZIP>
+					<Street>5 Donald Avenue</Street>
+					<City>Pueblo</City>
+					<State>CO</State>
+					<ZIP>81010</ZIP>
 					<Country>US</Country>
 				</Address>
-				<Email>wleavold2@npr.org</Email>
-				<Email>wleavold2@craigslist.org</Email>
+				<Email>cricker8@unesco.org</Email>
 			</Person>
 		</Manager>
 		<Address>
-			<Street>438 Jenna Road</Street>
-			<City>Huntsville</City>
-			<State>AL</State>
-			<ZIP>35815</ZIP>
+			<Street>56 Troy Point</Street>
+			<City>Chicago</City>
+			<State>IL</State>
+			<ZIP>60674</ZIP>
 			<Country>US</Country>
 		</Address>
 	</Store>
 	<Store>
-		<StoreCode>73668b</StoreCode>
+		<StoreCode>rp3am1</StoreCode>
 		<Manager>
 			<Person>
-				<PersonCode>fdc267</PersonCode>
+				<PersonCode>0oqico</PersonCode>
 				<Type>E</Type>
-				<Name>Quarry, Staci</Name>
+				<Name>Suddell, Barbie</Name>
 				<Address>
-					<Street>601 Lotheville Road</Street>
-					<City>Savannah</City>
-					<State>GA</State>
-					<ZIP>31405</ZIP>
+					<Street>79443 Kings Drive</Street>
+					<City>Boston</City>
+					<State>MA</State>
+					<ZIP>2114</ZIP>
 					<Country>US</Country>
 				</Address>
-				<Email>squarry0@reverbnation.com</Email>
-				<Email>squarry0@salon.com</Email>
+				<Email>bsuddell2@studiopress.com</Email>
+				<Email>bsuddell@gmail.com</Email>
 			</Person>
 		</Manager>
 		<Address>
-			<Street>9257 Maywood Junction</Street>
-			<City>Phoenix</City>
+			<Street>24 Anthes Place</Street>
+			<City>Peoria</City>
 			<State>AZ</State>
-			<ZIP>85099</ZIP>
+			<ZIP>85383</ZIP>
 			<Country>US</Country>
 		</Address>
 	</Store>
 	<Store>
-		<StoreCode>96f2cf</StoreCode>
+		<StoreCode>v6svft</StoreCode>
 		<Manager>
 			<Person>
-				<PersonCode>fdc267</PersonCode>
+				<PersonCode>02lrcn</PersonCode>
 				<Type>E</Type>
-				<Name>Quarry, Staci</Name>
+				<Name>Ricker, Corey</Name>
 				<Address>
-					<Street>601 Lotheville Road</Street>
-					<City>Savannah</City>
-					<State>GA</State>
-					<ZIP>31405</ZIP>
+					<Street>5 Donald Avenue</Street>
+					<City>Pueblo</City>
+					<State>CO</State>
+					<ZIP>81010</ZIP>
 					<Country>US</Country>
 				</Address>
-				<Email>squarry0@reverbnation.com</Email>
-				<Email>squarry0@salon.com</Email>
+				<Email>cricker8@unesco.org</Email>
 			</Person>
 		</Manager>
 		<Address>
-			<Street>116 Transport Drive</Street>
-			<City>Gainesville</City>
-			<State>FL</State>
-			<ZIP>32605</ZIP>
+			<Street>677 Towne Crossing</Street>
+			<City>Dayton</City>
+			<State>OH</State>
+			<ZIP>45414</ZIP>
 			<Country>US</Country>
 		</Address>
 	</Store>
 	<Store>
-		<StoreCode>25d901</StoreCode>
+		<StoreCode>wij2nr</StoreCode>
 		<Manager>
 			<Person>
-				<PersonCode>aa887a</PersonCode>
+				<PersonCode>02lrcn</PersonCode>
 				<Type>E</Type>
-				<Name>Leavold, Wit</Name>
+				<Name>Ricker, Corey</Name>
 				<Address>
-					<Street>65337 Straubel Place</Street>
-					<City>Muncie</City>
-					<State>IN</State>
-					<ZIP>47306</ZIP>
+					<Street>5 Donald Avenue</Street>
+					<City>Pueblo</City>
+					<State>CO</State>
+					<ZIP>81010</ZIP>
 					<Country>US</Country>
 				</Address>
-				<Email>wleavold2@npr.org</Email>
-				<Email>wleavold2@craigslist.org</Email>
+				<Email>cricker8@unesco.org</Email>
 			</Person>
 		</Manager>
 		<Address>
-			<Street>180 Magdeline Plaza</Street>
-			<City>Wichita</City>
-			<State>KS</State>
-			<ZIP>67230</ZIP>
+			<Street>9 Fairfield Drive</Street>
+			<City>San Diego</City>
+			<State>CA</State>
+			<ZIP>92191</ZIP>
 			<Country>US</Country>
 		</Address>
 	</Store>

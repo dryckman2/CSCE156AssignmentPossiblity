@@ -5,8 +5,6 @@ package com.mgg;
  * @author Matthew Bigge and David Ryckman
  */
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -19,11 +17,11 @@ public class DataInOut {
 	 * @param filepath
 	 * @return List of All Persons
 	 */
-	public static List<Person> importPersons(String filepath) {
+	public static CustomList<Person> importPersons(String filepath) {
 
 		// loading persons file input from csv file
 		File personInput = new File(filepath);
-		List<Person> people = new ArrayList<>();
+		CustomList<Person> people = new CustomList<>();
 		int numberOfPeople;
 		try (Scanner scan = new Scanner(personInput)) {
 			// Number of People is unused as list.size() does the same thing
@@ -40,7 +38,7 @@ public class DataInOut {
 				String zip = tokens[7];
 				String country = tokens[8];
 				// email addresses
-				List<String> emails = new ArrayList<>();
+				CustomList<String> emails = new CustomList<>();
 				for (int i = 9; i < tokens.length; i++) {
 					emails.add(tokens[i]);
 				}
@@ -63,10 +61,10 @@ public class DataInOut {
 	 * @param filepath
 	 * @return List of All Stores
 	 */
-	public static List<Store> importStores(String filepath) {
+	public static CustomList<Store> importStores(String filepath) {
 		// loading stores data from input .csv file
 		File storesInput = new File(filepath);
-		List<Store> stores = new ArrayList<>();
+		CustomList<Store> stores = new CustomList<>();
 		int numberOfStores;
 		try (Scanner scan = new Scanner(storesInput)) {
 			// Number of Stores is unused as list.size() does the same thing
@@ -99,10 +97,10 @@ public class DataInOut {
 	 * @param filepath
 	 * @return List of All Items
 	 */
-	public static List<Item> importItems(String filepath) {
+	public static CustomList<Item> importItems(String filepath) {
 		// loading items data from input .csv file
 		File itemsInput = new File(filepath);
-		List<Item> items = new ArrayList<>();
+		CustomList<Item> items = new CustomList<>();
 		int numberOfItems;
 		try (Scanner scan = new Scanner(itemsInput)) {
 			// Number of Items is unused as list.size() does the same thing
@@ -158,9 +156,9 @@ public class DataInOut {
 	 * @param employees
 	 * @return list of all sales
 	 */
-	public static List<Sale> importSaleData(String fileName, List<Item> items, List<Customer> customers,
-			List<Employee> employees) {
-		List<Sale> sales = new ArrayList<Sale>();
+	public static CustomList<Sale> importSaleData(String fileName, CustomList<Item> items, CustomList<Customer> customers,
+			CustomList<Employee> employees) {
+		CustomList<Sale> sales = new CustomList<Sale>();
 		File input = new File(fileName);
 		int numberOfSales = 0;
 		Item type;
@@ -173,9 +171,9 @@ public class DataInOut {
 				String tokens[] = scan.nextLine().split(",");
 				String saleCode = tokens[0];
 				String storeCode = tokens[1];
-				String customerCode = tokens[2];
-				String employeeCode = tokens[3];
-				List<Purchased> cart = new ArrayList<Purchased>();
+				Person customerCode = Person.checkCode(customers,tokens[2]);
+				Person employeeCode = Person.checkCode(employees,tokens[3]);
+				CustomList<Purchased> cart = new CustomList<Purchased>();
 				// checks each token to see if it is an items code, then associates other
 				// variable with it in the List
 				for (int i = 4; i < tokens.length; i++) {
@@ -240,7 +238,7 @@ public class DataInOut {
 	 * 
 	 * @param people
 	 */
-	public static void exportPeopleToXML(List<Person> people) {
+	public static void exportPeopleToXML(CustomList<Person> people) {
 
 		// implement output as XML File
 		File personOutputXML = new File("data/Persons.xml");
@@ -269,7 +267,7 @@ public class DataInOut {
 	 * @param stores
 	 * @param people
 	 */
-	public static void exportStoresToXML(List<Store> stores, List<Person> people) {
+	public static void exportStoresToXML(CustomList<Store> stores, CustomList<Person> people) {
 
 		File storesOutputXML = new File("data/Stores.xml");
 
@@ -295,7 +293,7 @@ public class DataInOut {
 	 * 
 	 * @param items
 	 */
-	public static void exportItemsToXML(List<Item> items) {
+	public static void exportItemsToXML(CustomList<Item> items) {
 
 		File itemsOutputXML = new File("data/Items.xml");
 
@@ -326,8 +324,8 @@ public class DataInOut {
 	 * @param allSales
 	 * @param employees
 	 */
-	public static void printReport(List<Store> stores, List<Item> items, List<Person> people, List<Sale> allSales,
-			List<Employee> employees) {
+	public static void printReport(CustomList<Store> stores, CustomList<Item> items, CustomList<Person> people, CustomList<Sale> allSales,
+			CustomList<Employee> employees) {
 
 		System.out.println("Sales Person Summary Report");
 		System.out.println("------------------------------------");

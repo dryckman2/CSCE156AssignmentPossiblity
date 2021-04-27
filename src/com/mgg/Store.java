@@ -6,14 +6,12 @@ package com.mgg;
  * @date 
  */
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Store {
 	private String code;
 	private String managerCode;
 	private Address address;
-	private List<Sale> saleAtStore;
+	private CustomList<Sale> saleAtStore;
 
 	public Store(String code, String managerCode, Address address) {
 		this.code = code;
@@ -21,7 +19,7 @@ public class Store {
 		this.address = address; // possibly make a list<> or array of Strings or split into parts and combine
 								// elsewhere
 		// Initializes Blank but is set after sales data is imported
-		this.saleAtStore = new ArrayList<Sale>();
+		this.saleAtStore = new CustomList<Sale>();
 	}
 
 	// code
@@ -46,7 +44,7 @@ public class Store {
 	 * @param people
 	 * @return
 	 */
-	public String toXMLString(int tabs, List<Person> people) {
+	public String toXMLString(int tabs, CustomList<Person> people) {
 		String data, offset = "";
 		for (int i = 1; i <= tabs; i++) {
 			offset += "\t";
@@ -74,11 +72,11 @@ public class Store {
 	 * @param people
 	 * @return Manager
 	 */
-	public Person getManager(List<Person> people) {
+	public Person getManager(CustomList<Person> people) {
 		return Person.checkCode(people, this.managerCode);
 	}
 
-	public void setListOfSales(List<Sale> allSales) {
+	public void setListOfSales(CustomList<Sale> allSales) {
 		for (Sale s : allSales) {
 			if (s.getStoreCode().equals(this.code)) {
 				this.saleAtStore.add(s);

@@ -6,7 +6,6 @@ package com.mgg;
  * @date 
  */
 
-import java.util.List;
 
 public class Person {
 	private String personCode;
@@ -14,10 +13,10 @@ public class Person {
 	private String lastName;
 	private String firstName;
 	private Address address;
-	private List<String> emailAddresses;
+	private CustomList<String> emailAddresses;
 
 	public Person(String personCode, String type, String lastName, String firstName, Address address,
-			List<String> emails) {
+			CustomList<String> emails) {
 		this.personCode = personCode;
 		this.type = type;
 		this.firstName = firstName;
@@ -52,7 +51,7 @@ public class Person {
 	}
 
 	// email addresses
-	public List<String> getEmailAddresses() {
+	public CustomList<String> getEmailAddresses() {
 		return this.emailAddresses;
 	}
 
@@ -86,7 +85,7 @@ public class Person {
  * @param code
  * @return person with code
  */
-	public static Person checkCode(List<? extends Person> people, String code) {
+	public static Person checkCode(CustomList<? extends Person> people, String code) {
 		for (Person p : people) {
 			if (p.getCode().equals(code)) {
 				return p;

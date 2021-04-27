@@ -8,8 +8,6 @@ package com.mgg;
  * @date 
  */
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Customer extends Person {
 
@@ -38,8 +36,8 @@ public class Customer extends Person {
 	 * @param allPeople
 	 * @return List of Only Customers
 	 */
-	public static List<Customer> pickCustomers(List<Person> allPeople) {
-		List<Customer> customers = new ArrayList<Customer>();
+	public static CustomList<Customer> pickCustomers(CustomList<Person> allPeople) {
+		CustomList<Customer> customers = new CustomList<Customer>();
 		for (Person p : allPeople) {
 			if ((p.getType().equals("P")) || (p.getType().equals("C")) || (p.getType().equals("G"))) {
 				customers.add(new Customer(p));

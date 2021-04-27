@@ -1,89 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Items>
 	<Service>
-		<ItemCode>8e366e</ItemCode>
+		<ItemCode>eo3ef1</ItemCode>
+		<Name>Professional Game Coaching</Name>
+		<HourlyRate>285.81</HourlyRate>
+	</Service>
+	<Subscription>
+		<ItemCode>8kt3lk</ItemCode>
+		<Name>Console Upgrade</Name>
+		<AnnualFee>454.19</AnnualFee>
+	</Subscription>
+	<NewProduct>
+		<ItemCode>qqzem3</ItemCode>
+		<Name>PlayStation 5 (With 3 Games)</Name>
+		<Price>445.66</Price>
+	</NewProduct>
+	<Subscription>
+		<ItemCode>0j9rpx</ItemCode>
+		<Name>MGG Magazine (Lite)</Name>
+		<AnnualFee>11.85</AnnualFee>
+	</Subscription>
+	<Subscription>
+		<ItemCode>94tjk0</ItemCode>
+		<Name>Anytime Electronic Repair</Name>
+		<AnnualFee>597.74</AnnualFee>
+	</Subscription>
+	<Service>
+		<ItemCode>9jumeg</ItemCode>
 		<Name>Console Repair</Name>
-		<HourlyRate>59.99</HourlyRate>
+		<HourlyRate>25.87</HourlyRate>
 	</Service>
+	<UsedProduct>
+		<ItemCode>m40lg5</ItemCode>
+		<Name>HTC Vive (Full Package)</Name>
+		<Price>661.26</Price>
+	</UsedProduct>
 	<Service>
-		<ItemCode>c4fb35</ItemCode>
-		<Name>VR Party Rental</Name>
-		<HourlyRate>120.0</HourlyRate>
-	</Service>
-	<Service>
-		<ItemCode>740515</ItemCode>
-		<Name>Game Addiction Counseling</Name>
-		<HourlyRate>1.99</HourlyRate>
+		<ItemCode>zw0ezr</ItemCode>
+		<Name>Most Expensive Service</Name>
+		<HourlyRate>781.92</HourlyRate>
 	</Service>
 	<Subscription>
-		<ItemCode>426dda</ItemCode>
-		<Name>X-Box Live</Name>
-		<AnnualFee>50.0</AnnualFee>
+		<ItemCode>5vuki7</ItemCode>
+		<Name>Most Expensive Subscription</Name>
+		<AnnualFee>779.44</AnnualFee>
 	</Subscription>
-	<Subscription>
-		<ItemCode>dedd44</ItemCode>
-		<Name>Nintendo Power magazine</Name>
-		<AnnualFee>120.0</AnnualFee>
-	</Subscription>
-	<Subscription>
-		<ItemCode>3506f6</ItemCode>
-		<Name>Disney Plus</Name>
-		<AnnualFee>89.99</AnnualFee>
-	</Subscription>
-	<NewProduct>
-		<ItemCode>1d4d89</ItemCode>
-		<Name>PlayStation 5 Digital Edition</Name>
-		<Price>399.99</Price>
-	</NewProduct>
-	<NewProduct>
-		<ItemCode>1ed5b7</ItemCode>
-		<Name>Nintendo Switch Lite</Name>
-		<Price>199.99</Price>
-	</NewProduct>
-	<NewProduct>
-		<ItemCode>6ce4cd</ItemCode>
-		<Name>Splatoon 2 (Digital Copy)</Name>
-		<Price>59.99</Price>
-	</NewProduct>
-	<NewProduct>
-		<ItemCode>c547e7</ItemCode>
-		<Name>Diet Mt Dew (20oz)</Name>
-		<Price>1.99</Price>
-	</NewProduct>
-	<UsedProduct>
-		<ItemCode>649f88</ItemCode>
-		<Name>Legend of Zelda (NES)</Name>
-		<Price>24.5</Price>
-	</UsedProduct>
-	<UsedProduct>
-		<ItemCode>0ec6e9</ItemCode>
-		<Name>Animal Crossings</Name>
-		<Price>59.99</Price>
-	</UsedProduct>
-	<UsedProduct>
-		<ItemCode>9b6e30</ItemCode>
-		<Name>Oculus Rift</Name>
-		<Price>199.99</Price>
-	</UsedProduct>
-	<UsedProduct>
-		<ItemCode>40a433</ItemCode>
-		<Name>Vive</Name>
-		<Price>599.99</Price>
-	</UsedProduct>
 	<GiftCard>
-		<ItemCode>5f73aa</ItemCode>
-		<Name>Nintendo Digital Gold</Name>
-	</GiftCard>
-	<GiftCard>
-		<ItemCode>14e2b7</ItemCode>
-		<Name>Steam</Name>
-	</GiftCard>
-	<GiftCard>
-		<ItemCode>8a30ad</ItemCode>
-		<Name>Android Store</Name>
-	</GiftCard>
-	<GiftCard>
-		<ItemCode>daad6a</ItemCode>
-		<Name>Robux</Name>
+		<ItemCode>hes90c</ItemCode>
+		<Name>V-Bucks</Name>
 	</GiftCard>
 </Items>

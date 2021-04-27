@@ -1,7 +1,5 @@
 package com.mgg;
 
-import java.util.List;
-
 /**
  * Demo Runner for whole project
  * 
@@ -15,32 +13,40 @@ public class SalesReport {
 	private static final String ITEMSFILE_NAME = "data/Items.csv";
 
 	public static void main(String[] args) {
-		//TODO UnComment out main code
-		/**
-		 * // Creates List for CSV data DatabaseConnection dc = new
-		 * DatabaseConnection(); List<Person> people = dc.generatePeople(); List<Store>
-		 * stores = dc.generateStore(); List<Item> items = dc.generateItem();
-		 * 
-		 * 
-		 * // Picks Employees out of people for later use List<Employee> employees =
-		 * Employee.pickEmployees(people); List<Customer> customers =
-		 * Customer.pickCustomers(people);
-		 * 
-		 * // To XML for People Stores and Items DataInOut.exportPeopleToXML(people);
-		 * DataInOut.exportStoresToXML(stores, people);
-		 * DataInOut.exportItemsToXML(items);
-		 * 
-		 * // Loads sales form CSV List<Sale> sales = dc.generateSale(items, customers,
-		 * employees); dc.close(); // Gives sales list to every store and every employee
-		 * where appropriate Sale.assignSalesToStores(stores, sales);
-		 * Sale.assignSalesToEmployees(employees, sales);
-		 * 
-		 * 
-		 * 
-		 * DataInOut.printReport(stores, items, people, sales, employees);
-		 **/
-		SalesData.addStore("TITTY", "aa887a",  "SUCCCDICC",  "OMAHA",  "NE", "68666",  "US");
+		// Creates List for CSV data
+		DatabaseConnection dc = new DatabaseConnection();
+		CustomList<Person> people = dc.generatePeople();
+		CustomList<Store> stores = dc.generateStore();
+		CustomList<Item> items = dc.generateItem();
 
+		// Picks Employees out of people for later use
+		CustomList<Employee> employees = Employee.pickEmployees(people);
+		CustomList<Customer> customers = Customer.pickCustomers(people);
 
+		// To XML for People Stores and Items
+		DataInOut.exportPeopleToXML(people);
+		DataInOut.exportStoresToXML(stores, people);
+		DataInOut.exportItemsToXML(items);
+
+		// Loads sales form CSV
+		CustomList<Sale> saleByCustomer = dc.generateSale(items, customers, employees,stores,new ComparebyCustomerName());
+		CustomList<Sale> saleByTotal = dc.generateSale(items, customers, employees,stores,new CompareByValue());
+		CustomList<Sale> salesByStore = dc.generateSale(items, customers, employees,stores,new CompareByStoreEmp());
+		dc.close();
+	
+		System.out.println("Sales By Customer");
+		System.out.println("-------------------");
+		Sale.smallReport(saleByCustomer);
+		System.out.println("\n\n");
+		
+		System.out.println("Sales By Total");
+		System.out.println("-------------------");
+		Sale.smallReport(saleByTotal);
+		System.out.println("\n\n");
+		
+		System.out.println("Sales By Store");
+		System.out.println("-------------------");
+		Sale.smallReport(salesByStore);
+		
 	}
 }

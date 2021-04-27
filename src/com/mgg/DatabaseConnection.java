@@ -12,8 +12,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Comparator;
+
 
 
 public class DatabaseConnection {
@@ -52,9 +52,9 @@ public class DatabaseConnection {
 	/**
 	 * generates list of People form the database
 	 */
-	public List<Person> generatePeople() {
+	public CustomList<Person> generatePeople() {
 
-		List<Person> people = new ArrayList<>();
+		CustomList<Person> people = new CustomList<>();
 		String query = "select p.personId, p.referencecode, p.personType,p.lastName, p.firstName, a.street, a.city, s.name as stateName, a.zip,c.name as countryName"
 				+ " from Person p " + "join Address a on a.addressId = p.addressId "
 				+ "join State s on s.stateId = a.stateId " + "join Country c on c.countryId = a.countryId;";
@@ -75,7 +75,7 @@ public class DatabaseConnection {
 				String country = rs.getString("countryName");
 				
 				//Second Query to get Email Addresses
-				List<String> emails = new ArrayList<>();
+				CustomList<String> emails = new CustomList<>();
 				query = "select emailAddress from Email where personId = ?;";
 				ps = conn.prepareStatement(query);
 				ps.setInt(1, personId);
@@ -99,12 +99,15 @@ public class DatabaseConnection {
 	/**
 	 * generates list of Stores from the database
 	 */
-	public List<Store> generateStore() {
-		List<Store> stores = new ArrayList<>();
-		String query = "select s.referencecode,p.referencecode as managerCode, a.street,a.city, st.name as stateName, a.zip,c.name as countryName "
-				+ "from Store s " + "join Address a on a.addressId = s.addressId "
-				+ "join State st on st.stateId = a.stateId " + "join Country c on c.countryId = a.countryId "
-				+ "join Person p on p.personId = s.managerId;";
+	public CustomList<Store> generateStore() {
+		CustomList<Store> stores = new CustomList<>();
+		String query = "select s.referencecode,p.referencecode as managerCode, a.street,a.city, st.name as stateName, a.zip,c.name as countryName " + 
+				"from Store s " + 
+				"join Address a on a.addressId = s.addressId " + 
+				"join State st on st.stateId = a.stateId " + 
+				"join Country c on c.countryId = a.countryId " + 
+				"join EmployeePerson ep on ep.employeeId = s.managerId " + 
+				"join Person p on p.personId = ep.personId;";
 		try {
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
@@ -131,8 +134,8 @@ public class DatabaseConnection {
 	/**
 	 * generates list of items from the database
 	 */
-	public List<Item> generateItem() {
-		List<Item> items = new ArrayList<>();
+	public CustomList<Item> generateItem() {
+		CustomList<Item> items = new CustomList<>();
 		String query = "select referenceCode, name,basePrice,itemType from ItemTemplate;";
 
 		try {
@@ -154,7 +157,7 @@ public class DatabaseConnection {
 				case "SV":
 					i = new Service(itemCode, name, price);
 					break;
-				case "GC":
+				case "PG":
 					i = new GiftCard(itemCode, name, price);
 					break;
 				case "PU":
@@ -176,10 +179,10 @@ public class DatabaseConnection {
 		return items;
 	}
 	/**
-	 * generates list of Sales from the database
+	 * generates list of Sales from the database, cmp is how to sort sales
 	 */
-	public List<Sale> generateSale(List<Item> items, List<Customer> customers, List<Employee> employees) {
-		List<Sale> sales = new ArrayList<Sale>();
+	public CustomList<Sale> generateSale(CustomList<Item> items, CustomList<Customer> customers, CustomList<Employee> employees,CustomList<Store> stores,Comparator<Sale> cmp) {
+		CustomList<Sale> sales = new CustomList<Sale>(cmp);
 		Item type;
 		double subtotal, tax;
 		String query = "select s.saleId,s.referenceCode as saleCode, st.referenceCode as storeCode, p.referenceCode as customerCode  , emp.referenceCode as employeeCode "
@@ -201,7 +204,7 @@ public class DatabaseConnection {
 				int saleId = rs.getInt("saleId");
 				
 				//Second Query for Items
-				List<Purchased> cart = new ArrayList<Purchased>();
+				CustomList<Purchased> cart = new CustomList<Purchased>();
 				query = "select it.referenceCode as itemCode,si.amount,si.quantity,si.beginDate,si.endDate,emp.referenceCode as serviceEmployee, si.numOfHours from Sale  s "
 						+ "join SoldItem si on si.saleId = s.saleId "
 						+ "join ItemTemplate it on it.itemTemplateId = si.itemTemplateId "
@@ -219,7 +222,7 @@ public class DatabaseConnection {
 						subtotal += specifiedType.getSubTotal();
 						tax += specifiedType.getTaxTotal();
 					}
-					if (type.getType().equals("GC")) {
+					if (type.getType().equals("PG")) {
 						OrderedGiftCard specifiedType = new OrderedGiftCard((GiftCard) type, rs2.getDouble("amount"));
 						cart.add(specifiedType);
 						subtotal += specifiedType.getSubTotal();
@@ -244,7 +247,12 @@ public class DatabaseConnection {
 				}
 				subtotal = Sale.changeRound(subtotal);
 				tax = Sale.changeRound(tax);
-				Sale s = new Sale(saleCode, storeCode, customerCode, employeeCode, cart, subtotal, tax);
+				Person customer = Person.checkCode(customers, customerCode);
+				if(customer == null) {
+					customer = Person.checkCode(employees,customerCode);
+				}
+				Person employee = Person.checkCode(employees,employeeCode);
+				Sale s = new Sale(saleCode, storeCode, customer, employee, cart, subtotal, tax);
 				s.runCustomerEmployeeDiscount(customers, employees);
 				rs2.close();
 				sales.add(s);
@@ -253,6 +261,9 @@ public class DatabaseConnection {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
+		
+		Sale.assignSalesToStores(stores, sales);
+		Sale.assignSalesToEmployees(employees, sales);
 
 		return sales;
 	}

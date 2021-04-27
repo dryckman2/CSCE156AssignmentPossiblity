@@ -1,10 +1,7 @@
 package com.mgg;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
+
 
 /**
  * 
@@ -16,19 +13,19 @@ import java.util.Scanner;
 public class Sale {
 	private String saleCode;
 	private String storeCode;
-	private String customerCode;
-	private String employeeCode;
-	private List<Purchased> purchased;
+	private Person customer;
+	private Person employee;
+	private CustomList<Purchased> purchased;
 	private double subtotal;
 	private double tax;
 	private double discountRate;
 
-	public Sale(String saleCode, String storeCode, String customerCode, String employeeCode, List<Purchased> items,
+	public Sale(String saleCode, String storeCode, Person customer, Person employee, CustomList<Purchased> items,
 			double subtotal, double tax) {
 		this.saleCode = saleCode;
 		this.storeCode = storeCode;
-		this.customerCode = customerCode;
-		this.employeeCode = employeeCode;
+		this.customer = customer;
+		this.employee = employee;
 		this.purchased = items;
 		this.subtotal = subtotal;
 		this.tax = tax;
@@ -55,15 +52,15 @@ public class Sale {
 		return this.storeCode;
 	}
 
-	public String getCustomerCode() {
-		return customerCode;
+	public Person getCustomer() {
+		return customer;
 	}
 
-	public String getEmployeeCode() {
-		return employeeCode;
+	public Person getEmployee() {
+		return employee;
 	}
 
-	public List<Purchased> getItems() {
+	public CustomList<Purchased> getItems() {
 		return purchased;
 	}
 
@@ -79,7 +76,7 @@ public class Sale {
 	 * @param stores
 	 * @param allSales
 	 */
-	public static void assignSalesToStores(List<Store> stores, List<Sale> allSales) {
+	public static void assignSalesToStores(CustomList<Store> stores, CustomList<Sale> allSales) {
 		for (Store thisStore : stores) {
 			thisStore.setListOfSales(allSales);
 		}
@@ -91,7 +88,7 @@ public class Sale {
 	 * @param employees
 	 * @param allSales
 	 */
-	public static void assignSalesToEmployees(List<Employee> employees, List<Sale> allSales) {
+	public static void assignSalesToEmployees(CustomList<Employee> employees, CustomList<Sale> allSales) {
 		for (Employee thisEmployee : employees) {
 			thisEmployee.setListOfSales(allSales);
 		}
@@ -103,15 +100,15 @@ public class Sale {
 	 * @param customers
 	 * @param employees
 	 */
-	public void runCustomerEmployeeDiscount(List<Customer> customers, List<Employee> employees) {
+	public void runCustomerEmployeeDiscount(CustomList<Customer> customers, CustomList<Employee> employees) {
 		discountRate = 0;
 		for (Customer c : customers) {
-			if (c.getCode().equals(this.getCustomerCode())) {
+			if (c.getCode().equals(this.customer.getCode())) {
 				discountRate = c.getDiscount();
 			}
 		}
 		for (Employee e : employees) {
-			if (e.getCode().equals(this.getCustomerCode())) {
+			if (e.getCode().equals(this.customer.getCode())) {
 				discountRate = 0.15;
 			}
 		}
@@ -132,15 +129,15 @@ public class Sale {
 	 * 
 	 * @param people
 	 */
-	public void printIndividualSaleReport(List<Person> people) {
+	public void printIndividualSaleReport(CustomList<Person> people) {
 		System.out.println("Sale  #" + this.getSaleCode());
 		System.out.println("Store  #" + this.getStoreCode());
 		System.out.println("Customer:");
-		Person thisCustomer = Person.checkCode(people, this.getCustomerCode());
+		Person thisCustomer = Person.checkCode(people, this.customer.getCode());
 		thisCustomer.printReport();
 		System.out.println();
 		System.out.println("Sale Person:");
-		Person employee = Person.checkCode(people, this.getEmployeeCode());
+		Person employee = Person.checkCode(people, this.employee.getCode());
 		employee.printReport();
 		System.out.println();
 		System.out.println("Item                                                               Total");
@@ -158,6 +155,16 @@ public class Sale {
 		System.out.printf("%68s$ %.2f\n", "Total ", this.getTotal());
 
 		System.out.printf("\n\n\n");
+	}
+	
+	public static void smallReport(CustomList<Sale> sales) {
+		System.out.printf("%-10s%-10s%-20s%-20s%-10s\n", "Sale","Store", "Customer", "Employee", "Total");
+		System.out.println("------------------------------------------------------------------------");
+		for(Sale s : sales) {
+			System.out.printf("%-10s%-10s%-20s%-20s%-10s\n", s.getSaleCode(), s.getStoreCode(), s.getCustomer().getName(), s.getEmployee().getName(),s.getTotal());
+		}
+		
+		
 	}
 
 }

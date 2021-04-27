@@ -44,7 +44,7 @@ public abstract class Item {
 	 */
 	public abstract String toXMLString(int tabs);
 
-	public static List<String> itemCodeList(List<Item> items) {
+	public static List<String> itemCodeList(CustomList<Item> items) {
 		List<String> codeList = new ArrayList<String>();
 
 		for (Item i : items) {
@@ -61,7 +61,7 @@ public abstract class Item {
 	 * @param code
 	 * @return item from items with code
 	 */
-	public static <T extends Item> T checkCode(List<T> items, String code) {
+	public static <T extends Item> T checkCode(CustomList<T> items, String code) {
 		for (T i : items) {
 			if (i.getCode().equals(code)) {
 				return i;

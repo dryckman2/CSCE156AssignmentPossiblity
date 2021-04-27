@@ -1,7 +1,5 @@
 package com.mgg;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Used to store employee separate from Customers
@@ -11,11 +9,11 @@ import java.util.List;
  */
 public class Employee extends Person {
 
-	private List<Sale> salesByEmployee;
+	private CustomList<Sale> salesByEmployee;
 
 	public Employee(Person p) {
 		super(p.getCode(), "E", p.getLastName(), p.getFirstName(), p.getAddress(), p.getEmailAddresses());
-		this.salesByEmployee = new ArrayList<Sale>();
+		this.salesByEmployee = new CustomList<Sale>();
 	}
 
 	/**
@@ -24,8 +22,8 @@ public class Employee extends Person {
 	 * @param allPeople
 	 * @return Employees from all people
 	 */
-	public static List<Employee> pickEmployees(List<Person> allPeople) {
-		List<Employee> employeesOnly = new ArrayList<Employee>();
+	public static CustomList<Employee> pickEmployees(CustomList<Person> allPeople) {
+		CustomList<Employee> employeesOnly = new CustomList<Employee>();
 		for (Person p : allPeople) {
 			if (p.getType().equals("E")) {
 				employeesOnly.add(new Employee(p));
@@ -40,9 +38,9 @@ public class Employee extends Person {
 	 * 
 	 * @param allSales
 	 */
-	public void setListOfSales(List<Sale> allSales) {
+	public void setListOfSales(CustomList<Sale> allSales) {
 		for (Sale s : allSales) {
-			if (s.getEmployeeCode().equals(this.getCode())) {
+			if (s.getEmployee().getCode().equals(this.getCode())) {
 				this.salesByEmployee.add(s);
 			}
 		}

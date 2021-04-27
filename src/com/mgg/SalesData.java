@@ -152,6 +152,7 @@ public class SalesData {
 		// Connection Setup
 		Connection conn = connSetUp();
 		PreparedStatement ps = null;
+		ResultSet rs = null;
 
 		// SQL
 		String create = "insert into Person (referenceCode,personType,lastName,firstName,addressId) values(?,?,?,?,?);";
@@ -159,19 +160,26 @@ public class SalesData {
 		// Execution
 		int addressId = pingAddress(street, city, state, zip, country, conn);
 		try {
-			ps = conn.prepareStatement(create);
+			ps = conn.prepareStatement(create, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, personCode);
 			ps.setString(2, type);
 			ps.setString(3, lastName);
 			ps.setString(4, firstName);
 			ps.setInt(5, addressId);
 			ps.executeUpdate();
+			rs = ps.getGeneratedKeys();
+			rs.next();
+			int personId = rs.getInt(1);
+			if (type.equals("E")) {
+				makePersonIdEmp(personId, conn);
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		// Close on Finish
 		try {
+			rs.close();
 			ps.close();
 			conn.close();
 		} catch (SQLException e) {
@@ -275,6 +283,40 @@ public class SalesData {
 	 * @param basePrice
 	 */
 	public static void addItem(String itemCode, String type, String name, Double basePrice) {
+		// Connection Setup
+		Connection conn = connSetUp();
+		PreparedStatement ps = null;
+
+		// SQL
+		String create = "insert into ItemTemplate (referenceCode,itemType,name,basePrice) values (?,?,?,?);";
+
+		//BasePrice Fixing
+		double newBasePrice;
+		if(basePrice == null) {
+			newBasePrice = -1;
+		}else {
+			newBasePrice = basePrice;
+		}
+		// Execution
+		try {
+			ps = conn.prepareStatement(create);
+			ps.setString(1, itemCode);
+			ps.setString(2, type);
+			ps.setString(3, name);
+			ps.setDouble(4, newBasePrice);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// Close on Finish
+		try {
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	/**
@@ -286,6 +328,33 @@ public class SalesData {
 	 * @param salesPersonCode
 	 */
 	public static void addSale(String saleCode, String storeCode, String customerCode, String salesPersonCode) {
+		// Connection Setup
+		Connection conn = connSetUp();
+		PreparedStatement ps = null;
+
+		// SQL
+		String create = "insert into Sale (referenceCode,storeId,customerId,employeeId) values (?,?,?,?);";
+
+		// Execution
+		try {
+			ps = conn.prepareStatement(create);
+			ps.setString(1, saleCode);
+			ps.setInt(2, getStoreId(storeCode, conn));
+			ps.setInt(3, getPerson(customerCode, conn));
+			ps.setInt(4, personIdToEmpID(getPerson(salesPersonCode, conn), conn));
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// Close on Finish
+		try {
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	/**
@@ -298,6 +367,31 @@ public class SalesData {
 	 * @param quantity
 	 */
 	public static void addProductToSale(String saleCode, String itemCode, int quantity) {
+		// Connection Setup
+		Connection conn = connSetUp();
+		PreparedStatement ps = null;
+
+		// SQL
+		String create = "insert into SoldItem(saleId,itemTemplateId,quantity) values(?,?,?);";
+
+		// Execution
+		try {
+			ps = conn.prepareStatement(create);
+			ps.setInt(1, getSaleId(saleCode, conn));
+			ps.setInt(2, getItemId(itemCode, conn));
+			ps.setInt(3, quantity);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// Close on Finish
+		try {
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -310,6 +404,31 @@ public class SalesData {
 	 * @param amount
 	 */
 	public static void addGiftCardToSale(String saleCode, String itemCode, double amount) {
+		// Connection Setup
+		Connection conn = connSetUp();
+		PreparedStatement ps = null;
+
+		// SQL
+		String create = "insert into SoldItem(saleId,itemTemplateId,amount) values(?,?,?);";
+
+		// Execution
+		try {
+			ps = conn.prepareStatement(create);
+			ps.setInt(1, getSaleId(saleCode, conn));
+			ps.setInt(2, getItemId(itemCode, conn));
+			ps.setDouble(3, amount);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// Close on Finish
+		try {
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -323,6 +442,32 @@ public class SalesData {
 	 * @param billedHours
 	 */
 	public static void addServiceToSale(String saleCode, String itemCode, String employeeCode, double billedHours) {
+		// Connection Setup
+		Connection conn = connSetUp();
+		PreparedStatement ps = null;
+
+		// SQL
+		String create = "insert into SoldItem(saleId,itemTemplateId,employeeId,numofHours) values(?,?,?,?);";
+
+		// Execution
+		try {
+			ps = conn.prepareStatement(create);
+			ps.setInt(1, getSaleId(saleCode, conn));
+			ps.setInt(2, getItemId(itemCode, conn));
+			ps.setInt(3, personIdToEmpID(getPerson(employeeCode,conn),conn));
+			ps.setDouble(4, billedHours);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// Close on Finish
+		try {
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -337,6 +482,32 @@ public class SalesData {
 	 * @param endDate
 	 */
 	public static void addSubscriptionToSale(String saleCode, String itemCode, String startDate, String endDate) {
+		// Connection Setup
+		Connection conn = connSetUp();
+		PreparedStatement ps = null;
+
+		// SQL
+		String create = "insert into SoldItem(saleId,itemTemplateId,beginDate,endDate) values(?,?,?,?);";
+
+		// Execution
+		try {
+			ps = conn.prepareStatement(create);
+			ps.setInt(1, getSaleId(saleCode, conn));
+			ps.setInt(2, getItemId(itemCode, conn));
+			ps.setString(3, startDate);
+			ps.setString(4, endDate);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// Close on Finish
+		try {
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Setup Connection to database
@@ -538,5 +709,104 @@ public class SalesData {
 			e.printStackTrace();
 		}
 		return eid;
+	}
+
+	// Makes Person at personId into an Employee
+	private static void makePersonIdEmp(int pid, Connection conn) {
+		// Connection Setup
+		PreparedStatement ps = null;
+
+		// SQL
+		String create = "insert into EmployeePerson(personId) values(?);";
+
+		// Execution
+		try {
+			ps = conn.prepareStatement(create);
+			ps.setInt(1, pid);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// Close on Finish
+		try {
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	//Gets store from code
+	private static int getStoreId(String code, Connection conn) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		String getStore = "select storeId from Store where referenceCode = ?";
+		int storeId = -1;
+		try {
+			ps = conn.prepareStatement(getStore);
+			ps.setString(1, code);
+			rs = ps.executeQuery();
+			rs.next();
+			storeId = rs.getInt("storeId");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return storeId;
+	}
+	//Gets sale from code
+	private static int getSaleId(String code, Connection conn) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		String getSale = "select saleId from Sale where referenceCode = ?";
+		int saleId = -1;
+		try {
+			ps = conn.prepareStatement(getSale);
+			ps.setString(1, code);
+			rs = ps.executeQuery();
+			rs.next();
+			saleId = rs.getInt("saleId");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return saleId;
+	}
+	//Gets item from code
+	private static int getItemId(String code, Connection conn) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		String getItem = "select itemTemplateId from ItemTemplate where referenceCode = ?";
+		int itemId = -1;
+		try {
+			ps = conn.prepareStatement(getItem);
+			ps.setString(1, code);
+			rs = ps.executeQuery();
+			rs.next();
+			itemId = rs.getInt("itemTemplateId");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return itemId;
 	}
 }
